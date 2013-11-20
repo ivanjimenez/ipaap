@@ -44,7 +44,8 @@ for(i=0;i<k;i++)
 //matriz C
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++)
-		[i][j] = rand();
+		C[i][j] = rand();
+
 
 /* producto de matrices */ 	    
 inicio = clock();
