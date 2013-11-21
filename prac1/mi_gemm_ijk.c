@@ -52,9 +52,10 @@ inicio = clock();
 
 for (i=0; i<2; i++)
 	for(j=0; j<2; j++)
-		for(l=0; l<2; l++)
+		for(l=0; l<2; l++) {
 			M(A,i,j,lda) = M(A,i,j,lda)+(M(A,i,j,lda)*M(B,i,j,ldb));
-
+                        printf("M(i,j)=%d ", M(A,i,j,lda)); 
+                }  
 
      
 fin = clock();
