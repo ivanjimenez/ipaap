@@ -1,18 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main () {
 	
-	int A[2][2] = {{1,2},
-				   {3,4}};
-	
-	int B[2][2] = {{5,6},
-				   {7,8}};
-					 
-	int C[2][2] = {{0,0},
-				   {0,0}};
-			
 	int i,j,k,P;
+	
+	int A[2][2];
+	
+	int B[2][2];
+					 
+	int C[2][2];
+	
+	//Valores para matriz A
+	
+	for (i=0;i<2;i++)
+		for(j=0;j<2;j++)
+			A[i][j] = rand();
+	
+	//Valores para matriz B
+	
+	for (i=0;i<2;i++)
+		for(j=0;j<2;j++)
+			B[i][j] = rand();
+	
+	//Valores para matriz C
+	
+	for (i=0;i<2;i++)
+		for(j=0;j<2;j++)
+			C[i][j] = rand();
+			
+	
 	
 	for (i=0; i<2; i++)
 		for(j=0; j<2; j++)
