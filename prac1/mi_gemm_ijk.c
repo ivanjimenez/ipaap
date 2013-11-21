@@ -34,17 +34,17 @@ A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 //matriz A
 for(i=0;i<m;i++)
 	for(j=0;j<k;j++)
-		A[i][j] = rand();
+		M(A,i,j,lda) = rand();
 	
 //matriz B
 for(i=0;i<k;i++)
 	for(j=0;j<n;j++)
-		B[i][j] = rand();
+		M(B,i,j,ldb) = rand();
 
 //matriz C
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++)
-		C[i][j] = rand();
+		M(C,i,j,ldc) = rand();
 
 
 /* producto de matrices */ 	    
@@ -53,7 +53,7 @@ inicio = clock();
 for (i=0; i<2; i++)
 	for(j=0; j<2; j++)
 		for(l=0; l<2; l++)
-			C[i][j] = C[i][j]+(A[i][l]*B[l][j]);
+			M(A,i,j,lda) = M(A,i,j,lda)+(M(A,i,j,lda)*M(B,i,j,ldb));
 
 
      
