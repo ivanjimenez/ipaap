@@ -47,14 +47,14 @@ for(i=0;i<m;i++)
 
 
 /* producto de matrices 
-Orden bucle ijk */ 	    
+Orden bucle jki */ 	    
 
 inicio = clock();
 
-for (i=0; i<2; i++)
-	for(j=0; j<2; j++)
-		for(l=0; l<2; l++) 
-			M(A,i,j,lda) = M(A,i,j,lda)+(M(A,i,j,lda)*M(B,i,j,ldb));
+for (j=0; j<2; j++)
+	for(k=0; k<2; k++)
+		for(i=0; i<2; i++) 
+			M(A,i,j,lda) = M(A,i,j,lda)+(M(A,i,k,lda)*M(B,k,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
