@@ -36,7 +36,9 @@ printf("Matriz A\n");
 for(i=0;i<m;i++)
 	for(j=0;j<k;j++) {
 		M(A,i,j,lda) = rand() % 20;
-		//printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));	
+	
+		printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));
+		
 	}
 		
 	
@@ -45,9 +47,9 @@ printf("Matriz B\n");
 
 for(i=0;i<k;i++)
 	for(j=0;j<n;j++){
-		
 		M(B,i,j,ldb) = rand() % 20;
-		// printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
+		
+		printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
 	}
 		
 
@@ -76,6 +78,13 @@ fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
 printf("C=AB (ijk): %2.5f segundos\n", duration );
+printf("Matriz C\n");
+for(i=0;i<m;i++)
+	for(j=0;j<n;j++) {
+	
+		
+		printf("M(%d,%d)=%d\n", i, j,M(C,i,j,ldc));
+	}
 
 
 }
