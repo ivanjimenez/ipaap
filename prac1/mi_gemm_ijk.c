@@ -34,6 +34,7 @@ A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 for(i=0;i<m;i++)
 	for(j=0;j<k;j++) {
 		M(A,i,j,lda) = rand() % 100;
+		printf("Matriz A\n");
 		printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));
 		
 	}
@@ -43,6 +44,7 @@ for(i=0;i<m;i++)
 for(i=0;i<k;i++)
 	for(j=0;j<n;j++){
 		M(B,i,j,ldb) = rand() % 100;
+		printf("Matriz B\n");
 		printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
 	}
 		
@@ -73,6 +75,7 @@ printf("C=AB (ijk): %2.5f segundos\n", duration );
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand();
+		printf("Matriz C\n");
 		printf("M(%d,%d)=%d\n", i, j,M(C,i,j,ldc));
 	}
 
