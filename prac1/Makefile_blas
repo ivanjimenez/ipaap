@@ -11,7 +11,7 @@ bloque_ijk: bloque_ijk.c
 	gcc -c bloque_ijk.c -o bloque_ijk.o 
 	gcc -o bloque_ijk bloque_ijk.o memoryfun.o
 blas_gemm: blas_gemm.c  
-	gcc -c blas_gemm.c -I /usr/include -o blas_gemm.o 
+	gcc -c blas_gemm.c -I /home/alu044/ipaap/prac1/BLAS/include -o blas_gemm.o 
 	gcc -o blas_gemm blas_gemm.o memoryfun.o -lblas
 	
 	
