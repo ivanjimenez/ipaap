@@ -51,15 +51,15 @@ Orden bucle jki */
 
 inicio = clock();
 
-for (j=0; j<2; j++)
-	for(k=0; k<2; k++)
-		for(i=0; i<2; i++) 
-			M(A,i,j,lda) = M(A,i,j,lda)+(M(A,i,k,lda)*M(B,k,j,ldb));
+for (j=0; j<n; j++)
+	for(l=0; l<k; l++)
+		for(i=0; i<m; i++) 
+			M(C,i,j,lda) = M(A,i,j,lda)+(M(A,i,l,lda)*M(B,l,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
-printf("C=AB (ijk): %2.5f segundos\n", duration );
+printf("C=AB (jki): %2.5f segundos\n", duration );
 
 
 }
