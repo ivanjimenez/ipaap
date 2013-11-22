@@ -51,9 +51,9 @@ Orden bucle ijk */
 
 inicio = clock();
 
-for (i=0; i<2; i++)
-	for(j=0; j<2; j++)
-		for(l=0; l<2; l++) 
+for (i=0; i<m; i++)
+	for(j=0; j<n; j++)
+		for(l=0; l<k; l++) 
 			M(C,i,j,lda) = M(A,i,j,lda)+(M(A,i,j,lda)*M(B,i,j,ldb));
                   
 fin = clock();
