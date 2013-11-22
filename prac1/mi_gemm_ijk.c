@@ -31,7 +31,6 @@ A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
 //matriz A
-printf("Matriz A\n");
 
 for(i=0;i<m;i++)
 	for(j=0;j<k;j++) {
@@ -41,7 +40,6 @@ for(i=0;i<m;i++)
 		
 	
 //matriz B
-printf("Matriz B\n");
 
 for(i=0;i<k;i++)
 	for(j=0;j<n;j++){
@@ -52,7 +50,6 @@ for(i=0;i<k;i++)
 		
 
 //matriz C
-printf("Matriz B\n");
 
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++) {
