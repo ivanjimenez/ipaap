@@ -32,18 +32,28 @@ A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 
 //matriz A
 for(i=0;i<m;i++)
-	for(j=0;j<k;j++)
+	for(j=0;j<k;j++) {
 		M(A,i,j,lda) = rand();
+		printf("M(%d,%d)=%d", i, j,M(A,i,j,lda));
+		
+	}
+		
 	
 //matriz B
 for(i=0;i<k;i++)
-	for(j=0;j<n;j++)
+	for(j=0;j<n;j++){
 		M(B,i,j,ldb) = rand();
+		printf("M(%d,%d)=%d", i, j,M(B,i,j,ldb));
+	}
+		
 
 //matriz C
 for(i=0;i<m;i++)
-	for(j=0;j<n;j++)
+	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand();
+		//printf("M(%d,%d)=%d", i, j,M(C,i,j,ldc));
+	}
+		
 
 
 /* producto de matrices 
@@ -60,6 +70,11 @@ fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
 printf("C=AB (ijk): %2.5f segundos\n", duration );
+for(i=0;i<m;i++)
+	for(j=0;j<n;j++) {
+		M(C,i,j,ldc) = rand();
+		printf("M(%d,%d)=%d", i, j,M(C,i,j,ldc));
+	}
 
 
 }
