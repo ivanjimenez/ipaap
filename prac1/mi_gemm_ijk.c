@@ -81,7 +81,7 @@ printf("C=AB (ijk): %2.5f segundos\n", duration );
 printf("Matriz C\n");
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++) {
-		M(C,i,j,ldc) = rand();
+	
 		
 		printf("M(%d,%d)=%d\n", i, j,M(C,i,j,ldc));
 	}
