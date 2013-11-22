@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -N mpi_cpi
+#PBS -k eo
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=00:30:00
+cd $PBS_O_WORKDIR                                            ## change to working irectory
+cat $PBS_NODEFILE >$PBS_O_WORKDIR/$PBS_JOBNAME.n$PBS_JOBID   ## save compute nodes
+mpiexec ./mpi_cpi                                            ## launch mpi program
+mv $HOME/$PBS_JOBNAME.* $PBS_O_WORKDIR                       ## move error and output files from HOME to working directory

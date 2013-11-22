@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -N omp_hello
+#PBS -k eo
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=00:03:00
+cd $PBS_O_WORKDIR                                            ## change to working directory
+cat $PBS_NODEFILE >$PBS_O_WORKDIR/$PBS_JOBNAME.n$PBS_JOBID   ## to save compute nodes
+export OMP_NUM_THREADS=8                                     ## number of threads
+./omp_hello                                                  ## launch openmp program
+mv $HOME/$PBS_JOBNAME.* $PBS_O_WORKDIR                       ## move error and output files to working directory

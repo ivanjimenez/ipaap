@@ -1,0 +1,7 @@
+CC          = mpicc
+
+mpi_blas_gemm: mpi_blas_gemm.c 
+	$(CC) -c mpi_blas_gemm.c -o mpi_blas_gemm.o 
+	$(CC) -o mpi_blas_gemm mpi_blas_gemm.o memoryfun.o -lblas 
+
+

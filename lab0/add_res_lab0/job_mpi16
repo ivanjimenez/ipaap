@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -N job_mpi
+#PBS -k eo
+#PBS -l nodes=2:ppn=8
+#PBS -l walltime=00:30:00
+cd $PBS_O_WORKDIR
+mpiexec ./mpi_cpi
