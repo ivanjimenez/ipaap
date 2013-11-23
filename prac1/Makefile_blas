@@ -13,5 +13,7 @@ bloque_ijk: bloque_ijk.c
 blas_gemm: blas_gemm.c  
 	gcc -c blas_gemm.c -I /usr/include -o blas_gemm.o 
 	gcc -o blas_gemm blas_gemm.o memoryfun.o -lblas
-	
+blas_dgemmv: blas_dgemmv.c
+	gcc -c blas_dgemmv.c -I /usr/include -o blas_dgemmv.o
+	gcc -o blas_dgemmv blas_dgemmv.o memoryfun.o -lblas	
 	
