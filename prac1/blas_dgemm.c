@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 if (argc!=4)
    {
-   printf("Error de Sintaxis. Uso: mi_gemm_ijk m n k\n");
+   printf("Error de Sintaxis. Uso: blas_degmm m n k\n");
    exit(1);
    }
 

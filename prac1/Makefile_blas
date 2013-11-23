@@ -16,4 +16,6 @@ blas_gemm: blas_gemm.c
 blas_dgemmv: blas_dgemmv.c
 	gcc -c blas_dgemmv.c -I /usr/include -o blas_dgemmv.o
 	gcc -o blas_dgemmv blas_dgemmv.o memoryfun.o -lblas	
-	
+blas_dgemm: blas_dgemm.c
+	gcc -c blas_dgemm.c -I /usr/include -o blas_dgemm.o
+	gcc -o blas_dgemm blas_dgemm.o memoryfun.o -lblas	
