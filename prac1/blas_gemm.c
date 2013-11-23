@@ -7,12 +7,14 @@
 
 int main(int argc, char **argv)
 {
-int i,j,l;
-int m,n,k,lda,ldb,ldc;
-double *A,*B,*C;
+	
+	int result;
+	int i,j,l;
+	int m,n,k,lda,ldb,ldc;
+	double *A,*B,*C;
 
-clock_t inicio, fin;
-double  duration;
+	clock_t inicio, fin;
+	double  duration;
 	
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 if (argc!=4)
@@ -64,10 +66,8 @@ Orden bucle ijk */
 
 inicio = clock();
 
-for (i=0; i<m; i++)
-	for(j=0; j<n; j++)
-		for(l=0; l<k; l++) 
-			M(C,i,j,lda) = M(A,i,j,lda)+(M(A,i,j,lda)*M(B,i,j,ldb));
+result = cblas_ddot(k,m,1,n,1);
+
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
