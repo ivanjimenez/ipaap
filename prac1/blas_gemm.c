@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "memoryfun.h"
-#include "cblas"
+#include "cblas.h"
 
 
 int main(int argc, char **argv)
