@@ -10,8 +10,10 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,l;
+	int alfa, beta;
 	int m,n,k,lda,ldb,ldc;
 	double *A,*B,*C;
+	double *V,*Y;
 
 	clock_t inicio, fin;
 	double  duration;
@@ -19,7 +21,7 @@ int main(int argc, char **argv)
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 if (argc!=4)
    {
-   printf("Error de Sintaxis. Uso: blas_dgemm m n k\n");
+   printf("Error de Sintaxis. Uso: blas_dgemv n k\n");
    exit(1);
    }
 
@@ -28,9 +30,24 @@ m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
 
 /* Dimensionado de las matrices, utilizando funciones propias */
 lda=m; ldb=k; ldc=m;
-A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
+A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n); V=dvector(m);
+
+//Relleno de escalares
+
+alfa = rand() % 20;
+beta = rand() % 20;
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
+
+//Vector V
+
+for(i=0;i<m;i++)
+	V[i] = rand() % 20;
+
+//Vector Y
+
+for(i=0;i<m;i++)
+	Y[i] = rand() % 20;
 
 //matriz A
 
@@ -66,12 +83,12 @@ for(i=0;i<m;i++)
 
 inicio = clock();
 
-cblas_dgemm(k,A,1,B,1);
+cblas_dgemv('N',m,k,alfa,A,lda,V,1,beta,Y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d %d\n", m, n, k);
-printf("alfa*op(A)*x + beta*y: %2.5f segundos\n", duration );
+printf("alfa*op(A)*V + beta*Y: %2.5f segundos\n", duration );
 
 
 }
