@@ -83,7 +83,7 @@ for(i=0;i<m;i++)
 
 inicio = clock();
 
-cblas_dgemv('CblasRowMajor','N',m,k,alfa,A,lda,V,1,beta,Y,1);
+cblas_dgemv(CblasRowMajor,N,m,k,alfa,A,lda,V,1,beta,Y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
