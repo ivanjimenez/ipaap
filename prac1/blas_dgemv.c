@@ -12,8 +12,8 @@ int main(int argc, char **argv)
 	int i,j,l;
 	int alfa, beta;
 	int m,n,k,lda,ldb,ldc;
-	double *A,*B,*C;
-	double *V,*Y;
+	//double *A,*B,*C;
+	//double *V,*Y;
 
 	clock_t inicio, fin;
 	double  duration;
@@ -30,7 +30,7 @@ m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
 
 /* Dimensionado de las matrices, utilizando funciones propias */
 lda=m; ldb=k; ldc=m;
-A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n); V=dvector(m);
+//A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n); V=dvector(m);
 
 //Relleno de escalares
 
@@ -41,40 +41,24 @@ beta = rand() % 20;
 
 //Vector V
 
-for(i=0;i<m;i++)
-	V[i] = rand() % 20;
+double x[] = {
+ -1, -1, 1
+};
 
 //Vector Y
 
-for(i=0;i<m;i++)
-	Y[i] = rand() % 20;
+double y[] = {
+0, 0, 0
+};
 
 //matriz A
+double m[] = {
+3,1,3,
+1,5,9,
+2,6,5
+};
 
-for(i=0;i<m;i++)
-	for(j=0;j<k;j++) {
-		M(A,i,j,lda) = rand() % 20;
-		//printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));	
-	}
-		
-	
 //matriz B
-
-for(i=0;i<k;i++)
-	for(j=0;j<n;j++){
-		
-		M(B,i,j,ldb) = rand() % 20;
-		// printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
-	}
-		
-
-//matriz C
- 
-for(i=0;i<m;i++)
-	for(j=0;j<n;j++) {
-		M(C,i,j,ldc) = rand() % 100;
-		//printf("M(%d,%d)=%d", i, j,M(C,i,j,ldc));
-	}
 		
 
 
@@ -83,7 +67,7 @@ for(i=0;i<m;i++)
 
 inicio = clock();
 
-cblas_dgemv(CblasRowMajor,N,m,k,alfa,A,lda,V,1,beta,Y,1);
+cblas_dgemv(CblasRowMajor,CblasNoTrans,3,3,1.0,m,3,x,1,0.0,y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
