@@ -34,8 +34,6 @@ lda=m; ldb=k; ldc=m;
 
 //Relleno de escalares
 
-alfa = rand() % 20;
-beta = rand() % 20;
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
@@ -52,7 +50,7 @@ double y[] = {
 };
 
 //matriz A
-double m[] = {
+double M[] = {
 3,1,3,
 1,5,9,
 2,6,5
@@ -67,7 +65,7 @@ double m[] = {
 
 inicio = clock();
 
-cblas_dgemv(CblasRowMajor,CblasNoTrans,3,3,1.0,m,3,x,1,0.0,y,1);
+cblas_dgemv(CblasRowMajor,CblasNoTrans,3,3,1.0,M,3,x,1,0.0,y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
