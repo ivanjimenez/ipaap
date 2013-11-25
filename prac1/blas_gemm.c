@@ -70,7 +70,7 @@ cblas_degmm(CblasRowMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,2.0,C,
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d %d %d\n", m, n, k);
+printf("%d %d %d\n", m, n, k);
 printf("C <- alfa*op(A)*op(B) + beta*C: %2.5f segundos\n", duration );
 
 
