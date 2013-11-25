@@ -75,7 +75,7 @@ for (ib=0; ib<n; ib++)
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d %d\n", m, n, k);
+printf("%d %d \n", n, alfa);
 printf("Bloques:: C=AB (ijk): %2.5f segundos\n", duration );
 
 
