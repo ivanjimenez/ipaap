@@ -10,30 +10,29 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,l;
-	int alfa, beta;
 	int m,n,k,lda,ldb,ldc;
-	//double *A,*B,*C;
-	//double *V,*Y;
+	double *A,*V;
+	
 
 	clock_t inicio, fin;
 	double  duration;
 	
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 
-/*if (argc!=4)
+if (argc!=4)
    {
    printf("Error de Sintaxis. Uso: blas_dgemv n k\n");
    exit(1);
    }
 
 /* Lectura de parametros de entrada */
-//m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
+   m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
 
 /* Dimensionado de las matrices, utilizando funciones propias */
-//lda=m; ldb=k; ldc=m;
-//A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n); V=dvector(m);
+   lda=m; ldb=k; ldc=m;
+   A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n); V=dvector(m);
 
-//Relleno de escalares
+   //Relleno de escalares
 
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
