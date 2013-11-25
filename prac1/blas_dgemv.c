@@ -10,8 +10,8 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,l;
-	int m,n,k,lda,ldb,ldc;
-	double *A,*V;
+	int m,n,lda,ldx,ldy;
+	double *A,*X,*Y;
 	
 
 	clock_t inicio, fin;
@@ -19,45 +19,40 @@ int main(int argc, char **argv)
 	
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 
-if (argc!=4)
+if (argc!=3)
    {
-   printf("Error de Sintaxis. Uso: blas_dgemv n k\n");
+   printf("Error de Sintaxis. Uso: blas_dgemv m n\n");
    exit(1);
    }
 
 /* Lectura de parametros de entrada */
-   m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
-
+   m=atoi(argv[1]); n=atoi(argv[2]); 
+   
 /* Dimensionado de las matrices, utilizando funciones propias */
-   lda=m; ldb=k; ldc=m;
-   A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n); V=dvector(m);
-
-   //Relleno de escalares
+   lda=m; ldx=n; ldy=n;
+   A=dmatrix(m,m); X=dvector(n); Y=dvector(n);
 
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
+   
+   //Matriz A
 
-//Vector V
+   for (i=0;i<m;i++)
+	   for(j=0;i<m;j++)
+		   M(A,i,j,lda) = rand() % 20;
 
-double x[] = {
- -1, -1, 1
-};
+	//Vector X
+   
+   for (i=0;i<n;i++)
+	   X[i] = rand() % 20;
+   
+   //Vector Y
+   
+   for (i=0;i<n;i++)
+	   Y[i] = rand() % 20;
 
-//Vector Y
 
-double y[] = {
-0, 0, 0
-};
 
-//matriz A
-double M[] = {
-3,1,3,
-1,5,9,
-2,6,5
-};
-
-//matriz B
-		
 
 
 // Computa la operaciÃ³n: cblas.dgemmv; y <- alfa*op(A)*x + beta*y
@@ -65,7 +60,7 @@ double M[] = {
 
 inicio = clock();
 
-cblas_dgemv(CblasRowMajor,CblasNoTrans,3,3,1.0,M,3,x,1,0.0,y,1);
+cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,M,lda,X,1,0.0,Y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
