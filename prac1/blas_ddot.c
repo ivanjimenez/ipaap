@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,l;
-	int m,ldx, ldy;
+	int m,ldx,ldy;
 	double *X,*Y;
 
 	clock_t inicio, fin;
@@ -36,8 +36,6 @@ X=dvector(m); Y=dvector(m);
 
 for(i=0;i<m;i++)
 	X[i] = rand() % 20;
-	
-		
 	
 //matriz Y
 
