@@ -9,32 +9,32 @@ int main(int argc, char **argv)
 {
 int i,j,l,ib,jb,kb;
 int alfa;  //tamaño de bloque
-int m,n,k,lda,ldb,ldc;
+int n,k,lda,ldb,ldc;
 double *A,*B,*C;
 
 clock_t inicio, fin;
 double  duration;
 	
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
-if (argc!=5)
+if (argc!=3)
    {
-   printf("Error de Sintaxis. Uso: bloque_ijk m n k alba\n");
+   printf("Error de Sintaxis. Uso: bloque_ijk n alfa\n");
    exit(1);
    }
 
 /* Lectura de parametros de entrada */
-m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]); alfa=atoi(argv[4]);
+n=atoi(argv[1]); alfa=atoi(argv[2]);
 
 /* Dimensionado de las matrices, utilizando funciones propias */
-lda=m; ldb=k; ldc=m;
-A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
+lda=n; ldb=n; ldc=n;
+A=dmatrix(n,n); B=dmatrix(n,n); C=dmatrix(n,n);
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
 //matriz A
 
-for(i=0;i<m;i++)
-	for(j=0;j<k;j++) {
+for(i=0;i<n;i++)
+	for(j=0;j<n;j++) {
 		M(A,i,j,lda) = rand() % 20;
 			
 	}
@@ -42,7 +42,7 @@ for(i=0;i<m;i++)
 	
 //matriz B
 
-for(i=0;i<k;i++)
+for(i=0;i<n;i++)
 	for(j=0;j<n;j++){
 		
 		M(B,i,j,ldb) = rand() % 20;
@@ -52,7 +52,7 @@ for(i=0;i<k;i++)
 
 //matriz C
 
-for(i=0;i<m;i++)
+for(i=0;i<n;i++)
 	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand() % 100;
 		
@@ -65,11 +65,11 @@ Orden bucle ijk */
 
 inicio = clock();
 
-for (ib=0; ib<m; ib++)
+for (ib=0; ib<n; ib++)
 	for (i = (ib-1) * alfa + 1; i==ib*alfa;i++)
-		for(jb=0; jb<m; jb++)
+		for(jb=0; jb<n; jb++)
 			for(j = (jb-1) * alfa + 1;j==jb*alfa;j++)	
-				for(kb=0; kb++; kb<m)
+				for(kb=0; kb++; kb<n)
 					for(k = (kb-1) * alfa+1;k==jb*alfa;k++)
 			   	 	   M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
                   
