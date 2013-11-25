@@ -68,15 +68,15 @@ inicio = clock();
 for (ib=0; ib<m; ib++)
 	for(jb=0; jb<m; jb++)
 		for(kb=0; kb++; kb<m)
-			for (i = (ib-1) * alfa + 1; i<ib*alfa;i++)
-				for(j = (jb-1) * alfa + 1;j<jb*alfa;j++)		
-					for(k = (kb-1) * alfa+1;k<jb*alfa;k++)
-			   	 	   M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda)*M(B,k,j,ldb));
+			for (i = (ib-1) * alfa + 1; i==ib*alfa;i++)
+				for(j = (jb-1) * alfa + 1;j==jb*alfa;j++)		
+					for(k = (kb-1) * alfa+1;k==jb*alfa;k++)
+			   	 	   M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
-printf("C=AB (ijk): %2.5f segundos\n", duration );
+printf("Bloques:: C=AB (ijk): %2.5f segundos\n", duration );
 
 
 }
