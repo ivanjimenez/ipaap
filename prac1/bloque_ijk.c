@@ -7,7 +7,8 @@
 
 int main(int argc, char **argv)
 {
-int i,j,l;
+int i,j,l,ib,jb,kb;
+int alfa;  //tamaño de bloque
 int m,n,k,lda,ldb,ldc;
 double *A,*B,*C;
 
@@ -15,14 +16,14 @@ clock_t inicio, fin;
 double  duration;
 	
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
-if (argc!=4)
+if (argc!=5)
    {
-   printf("Error de Sintaxis. Uso: mi_gemm_ijk m n k\n");
+   printf("Error de Sintaxis. Uso: bloque_ijk m n k alba\n");
    exit(1);
    }
 
 /* Lectura de parametros de entrada */
-m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
+m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]); alfa=atoi([argv[4]]);
 
 /* Dimensionado de las matrices, utilizando funciones propias */
 lda=m; ldb=k; ldc=m;
@@ -35,7 +36,7 @@ A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 for(i=0;i<m;i++)
 	for(j=0;j<k;j++) {
 		M(A,i,j,lda) = rand() % 20;
-		//printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));	
+			
 	}
 		
 	
@@ -45,7 +46,7 @@ for(i=0;i<k;i++)
 	for(j=0;j<n;j++){
 		
 		M(B,i,j,ldb) = rand() % 20;
-		// printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
+		
 	}
 		
 
@@ -54,7 +55,7 @@ for(i=0;i<k;i++)
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand() % 100;
-		//printf("M(%d,%d)=%d", i, j,M(C,i,j,ldc));
+		
 	}
 		
 
@@ -64,10 +65,13 @@ Orden bucle ijk */
 
 inicio = clock();
 
-for (i=0; i<m; i++)
-	for(j=0; j<n; j++)
-		for(l=0; l<k; l++) 
-			M(C,i,j,lda) = M(A,i,j,lda)+(M(A,i,j,lda)*M(B,i,j,ldb));
+for (ib=0; ib<m; ib++)
+	i = (ib-1) * alfa + 1;
+		for(jb=1; jb<m; jb++)
+			j = (jb-1) * alfa + 1;
+			for(kb =1; kb++; kb<m)
+				k = (kb-1) * alfa+1;
+			    M(C,i,j,ldc) = M(C,i,j,lda)+(M(A,i,k,lda)*M(B,k,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
