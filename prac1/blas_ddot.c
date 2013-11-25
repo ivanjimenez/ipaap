@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	int result;
 	int i,j,l;
 	int m,ldx, ldy;
-	
+	double *X,*Y;
 
 	clock_t inicio, fin;
 	double  duration;
