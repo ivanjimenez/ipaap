@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 if (argc!=4)
    {
-   printf("Error de Sintaxis. Uso: mi_gemm_ijk m n k\n");
+   printf("Error de Sintaxis. Uso: blas_gemm m n k\n");
    exit(1);
    }
 
@@ -37,7 +37,7 @@ A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 for(i=0;i<m;i++)
 	for(j=0;j<k;j++) {
 		M(A,i,j,lda) = rand() % 20;
-		//printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));	
+		
 	}
 		
 	
@@ -47,7 +47,7 @@ for(i=0;i<k;i++)
 	for(j=0;j<n;j++){
 		
 		M(B,i,j,ldb) = rand() % 20;
-		// printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
+		
 	}
 		
 
@@ -56,22 +56,22 @@ for(i=0;i<k;i++)
 for(i=0;i<m;i++)
 	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand() % 100;
-		//printf("M(%d,%d)=%d", i, j,M(C,i,j,ldc));
+		
 	}
 		
 
 
-// Computa la operaciÃ³n: cblas.dot <- X^T*Y
+// Computa la operacion: C <- alfa*op(A)*op(B) + beta*C
     
 
 inicio = clock();
 
-result = cblas_ddot(k,A,1,B,1);
+cblas_degmm(CblasRowMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,2.0,C,ldc);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d %d %d\n", m, n, k, result);
-printf("x^T*y: %2.5f segundos\n", duration );
+printf("%d %d %d %d\n", m, n, k);
+printf("C <- alfa*op(A)*op(B) + beta*C: %2.5f segundos\n", duration );
 
 
 }
