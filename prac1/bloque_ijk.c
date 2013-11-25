@@ -66,12 +66,12 @@ Orden bucle ijk */
 inicio = clock();
 
 for (ib=0; ib<m; ib++)
-	for(jb=1; jb<m; jb++)
-		for(kb =1; kb++; kb<m)
+	for(jb=0; jb<m; jb++)
+		for(kb=0; kb++; kb<m)
 			for (i = (ib-1) * alfa + 1; i<ib*alfa;i++)
 				for(j = (jb-1) * alfa + 1;j<jb*alfa;j++)		
 					for(k = (kb-1) * alfa+1;k<jb*alfa;k++)
-			   	 	   M(C,i,j,ldc) = M(C,i,j,lda)+(M(A,i,k,lda)*M(B,k,j,ldb));
+			   	 	   M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda)*M(B,k,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
