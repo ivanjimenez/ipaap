@@ -23,7 +23,7 @@ if (argc!=5)
    }
 
 /* Lectura de parametros de entrada */
-m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]); alfa=atoi([argv[4]]);
+m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]); alfa=atoi(argv[4]);
 
 /* Dimensionado de las matrices, utilizando funciones propias */
 lda=m; ldb=k; ldc=m;
