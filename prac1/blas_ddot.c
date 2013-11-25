@@ -17,48 +17,32 @@ int main(int argc, char **argv)
 	double  duration;
 	
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
-if (argc!=4)
+if (argc!=2)
    {
-   printf("Error de Sintaxis. Uso: mi_gemm_ijk m n k\n");
+   printf("Error de Sintaxis. Uso: blas_ddot m \n");
    exit(1);
    }
 
 /* Lectura de parametros de entrada */
-m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
+m=atoi(argv[1]); 
 
 /* Dimensionado de las matrices, utilizando funciones propias */
-lda=m; ldb=k; ldc=m;
-A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
+ldx=m; ldy=n; 
+X=dvector(m); Y=dvector(m); 
 
-/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
+/* Relleno de vectores con valores aleatorios. Uso de macro propia */
 
-//matriz A
+//vector X
 
 for(i=0;i<m;i++)
-	for(j=0;j<k;j++) {
-		M(A,i,j,lda) = rand() % 20;
-		//printf("M(%d,%d)=%d\n", i, j,M(A,i,j,lda));	
-	}
+	X[i] = rand() % 20;
+	
 		
 	
-//matriz B
+//matriz Y
 
-for(i=0;i<k;i++)
-	for(j=0;j<n;j++){
-		
-		M(B,i,j,ldb) = rand() % 20;
-		// printf("M(%d,%d)=%d\n", i, j,M(B,i,j,ldb));
-	}
-		
-
-//matriz C
- 
 for(i=0;i<m;i++)
-	for(j=0;j<n;j++) {
-		M(C,i,j,ldc) = rand() % 100;
-		//printf("M(%d,%d)=%d", i, j,M(C,i,j,ldc));
-	}
-		
+	Y[i] = rand() % 20;		
 
 
 // Computa la operaciÃ³n: cblas.dot <- X^T*Y
@@ -66,11 +50,11 @@ for(i=0;i<m;i++)
 
 inicio = clock();
 
-result = cblas_ddot(k,A,1,B,1);
+result = cblas_ddot(m,X,1,Y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d %d %d\n", m, n, k, result);
+printf("%d %d\n", m, result);
 printf("x^T*y: %2.5f segundos\n", duration );
 
 
