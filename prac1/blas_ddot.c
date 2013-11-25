@@ -10,8 +10,8 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,l;
-	int m,n,k,lda,ldb,ldc;
-	double *A,*B,*C;
+	int m,ldx, ldy;
+	
 
 	clock_t inicio, fin;
 	double  duration;
@@ -27,7 +27,7 @@ if (argc!=2)
 m=atoi(argv[1]); 
 
 /* Dimensionado de las matrices, utilizando funciones propias */
-ldx=m; ldy=n; 
+ldx=m; ldy=m; 
 X=dvector(m); Y=dvector(m); 
 
 /* Relleno de vectores con valores aleatorios. Uso de macro propia */
