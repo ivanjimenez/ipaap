@@ -35,12 +35,12 @@ X=dvector(m); Y=dvector(m);
 //vector X
 
 for(i=0;i<m;i++)
-	M(X,i,ldx) = rand() % 20;
+	X[i] = rand() % 20;
 	
 //matriz Y
 
 for(i=0;i<m;i++)
-	M(Y,i,ldy) = rand() % 20;		
+	Y[i] = rand() % 20;		
 
 
 // Computa la operación: cblas.dot <- X^T*Y
