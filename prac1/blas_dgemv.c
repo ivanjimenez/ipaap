@@ -60,11 +60,11 @@ if (argc!=3)
 
 inicio = clock();
 
-cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,M,lda,X,1,0.0,Y,1);
+cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,X,1,0.0,Y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d %d %d\n", m, n, k);
+printf("%d %d\n", m, n);
 printf("alfa*op(A)*V + beta*Y: %2.5f segundos\n", duration );
 
 
