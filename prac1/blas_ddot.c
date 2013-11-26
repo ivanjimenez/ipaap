@@ -43,7 +43,7 @@ for(i=0;i<m;i++)
 	Y[i] = rand() % 20;		
 
 
-// Computa la operaciÃ³n: cblas.dot <- X^T*Y
+// Computa la operación: cblas.dot <- X^T*Y
     
 
 inicio = clock();
