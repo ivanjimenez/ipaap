@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	double  duration;
 	
 	/* Comprobación número de argumentos correctos. Se pasaran m n k */
-	if (argc!=4)
+	if (argc!=2)
 	   {
 	   printf("Error de Sintaxis. Uso: blas_ddot n \n");
 	   exit(1);
