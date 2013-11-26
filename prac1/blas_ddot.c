@@ -10,45 +10,48 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,l;
-	int m,ldx,ldy;
-	double *X,*Y;
+	int m,n,k,lda,ldb,ldc;
+	double *A,*B;
 
 	clock_t inicio, fin;
 	double  duration;
 	
-/* Comprobación número de argumentos correctos. Se pasaran m n k */
-if (argc!=2)
-   {
-   printf("Error de Sintaxis. Uso: blas_ddot m \n");
-   exit(1);
-   }
+	/* Comprobación número de argumentos correctos. Se pasaran m n k */
+	if (argc!=4)
+	   {
+	   printf("Error de Sintaxis. Uso: blas_ddot n \n");
+	   exit(1);
+	   }
 
-/* Lectura de parametros de entrada */
-m=atoi(argv[1]); 
+	/* Lectura de parametros de entrada */
+	n=atoi(argv[1]);
 
-/* Dimensionado de las matrices, utilizando funciones propias */
-ldx=m; ldy=m; 
-X=dvector(m); Y=dvector(m); 
+	/* Dimensionado de las matrices, utilizando funciones propias */
+	lda=n; ldb=n; 
+	A=dmatrix(n,n); B=dmatrix(n,n);
 
-/* Relleno de vectores con valores aleatorios. Uso de macro propia */
+	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-//vector X
-
-for(i=0;i<m;i++)
-	X[i] = rand() % 20;
+	//matrixA (n x 1)
 	
-//matriz Y
 
-for(i=0;i<m;i++)
-	Y[i] = rand() % 20;		
+	for(i=0;i<n;i++)
+		for(j=0;j<1;j++) 
+			vector(i) = rand() % 20;
+			
+	//matrizB (1 x n)
 
-
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+			vector(j) = rand() % 20;
+				
+	
 // Computa la operación: cblas.dot <- X^T*Y
     
 
 inicio = clock();
 
-result = cblas_ddot(m,X,1,Y,1);
+result = cblas_ddot(n,A,1,B,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
