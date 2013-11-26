@@ -37,13 +37,13 @@ int main(int argc, char **argv)
 
 	for(i=0;i<n;i++)
 		for(j=0;j<1;j++) 
-			dvector(i) = (double)(rand() % 20);
+			M(A,i,j,lda) = dvector(i);
 			
 	//matrizB (1 x n)
 
-	for(i=0;i<n;i++)
+	for(i=0;i<1;i++)
 		for(j=0;j<n;j++)
-			dvector(j) = (double)(rand() % 20);
+			M(B,i,j,ldb) = dvector(j);
 				
 	
 // Computa la operación: cblas.dot <- X^T*Y
