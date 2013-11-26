@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
 inicio = clock();
 
-result = cblas_ddot(n,A,0,B,999);
+result = cblas_ddot(n,A,1,B,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
