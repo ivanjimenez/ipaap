@@ -44,16 +44,12 @@ if (argc!=3)
 	//Vector X
    
    for (i=0;i<n;i++)
-	   X[i] = rand() % 20;
-   
+	  ...  
+    
    //Vector Y
    
    for (i=0;i<n;i++)
-	   Y[i] = rand() % 20;
-
-
-
-
+	   ...
 
 // Computa la operación: cblas.dgemmv; y <- alfa*op(A)*x + beta*y
     
