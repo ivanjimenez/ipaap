@@ -51,11 +51,11 @@ int main(int argc, char **argv)
 
 inicio = clock();
 
-result = cblas_ddot(n,A,0,B,0);
+result = cblas_ddot(n,A,0,B,999);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d\n", m, result);
+printf("%d %d\n", n, result);
 printf("x^T*y: %2.5f segundos\n", duration );
 
 
