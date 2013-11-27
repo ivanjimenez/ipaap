@@ -7,9 +7,9 @@
 
 int main(int argc, char **argv)
 {
-int i,j,l,ib,jb,kb;
-int alfa;  //tamaño de bloque
-int n,k,lda,ldb,ldc;
+int i,j,k,ib,jb,kb;
+int alfa;  //tama de bloque
+int n,lda,ldb,ldc;
 double *A,*B,*C;
 
 clock_t inicio, fin;
@@ -64,6 +64,7 @@ for(i=0;i<n;i++)
 Orden bucle ijk */ 	    
 
 inicio = clock();
+printf("estoy en blucle?");
 for(i = ib * alfa; i<ib * alfa; i++)
 	for(j = jb * alfa; j<jb*alfa; j++)
 		for(k = kb * alfa; k<jb*alfa; k++)
@@ -72,9 +73,8 @@ for(i = ib * alfa; i<ib * alfa; i++)
 					for(kb=0; kb<n; kb++){
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 						printf("i=%d,j=%d,k=%d,ib=%d,jb=%d,kb=%d,M=%d",i,j,k,ib,jb,kb,M(C,i,j,ldc));
-						
 					}
-			   	 	   
+printf("estoy en blucle?");	 	   
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
