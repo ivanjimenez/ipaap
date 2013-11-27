@@ -65,12 +65,12 @@ Orden bucle ijk */
 
 inicio = clock();
 printf("estoy en blucle?");
-for(i = ib * alfa; i<ib * alfa; i++)
-	for(j = jb * alfa; j<jb*alfa; j++)
-		for(k = kb * alfa; k<jb*alfa; k++)
-			for(ib=0; ib<n; ib++)
-				for(jb=0; jb<n; jb++)
-					for(kb=0; kb<n; kb++){
+for(ib=0; ib<n; ib++)
+	for(i = ib * alfa; i<ib * alfa; i++)
+		for(jb=0; jb<n; jb++)
+			for(j = jb * alfa; j<jb*alfa; j++)
+				for(kb=0; kb<n; kb++)
+					for(k = kb * alfa; k<jb*alfa; k++)		{
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 						printf("i=%d,j=%d,k=%d,ib=%d,jb=%d,kb=%d,M=%d",i,j,k,ib,jb,kb,M(C,i,j,ldc));
 					}
