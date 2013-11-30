@@ -54,7 +54,7 @@ for(i=0;i<n;i++)
 
 for(i=0;i<n;i++)
 	for(j=0;j<n;j++) {
-		M(C,i,j,ldc) = rand() % 100;
+		M(C,i,j,ldc) = rand() % 20;
 		
 	}
 		
@@ -68,9 +68,9 @@ printf("estoy en blucle?");
 for(ib=0; ib<n; ib++)
 	for(jb=0; jb<n; jb++)
 		for(kb=0; kb<n; kb++)
-			for(i = ib * alfa; i<(ib + 1) * alfa; i++)
-				for(j = jb * alfa; j<(jb+1)*alfa; j++)
-					for(k = kb * alfa; k<(kb+1)*alfa; k++) {
+			for(i = (ib - 1) * alfa; i< ib * alfa; i++)
+				for(j = (jb -1) * alfa; j< jb * alfa; j++)
+					for(k = (kb - 1) * alfa; k < kb * alfa; k++) {
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 						printf("i=%d,j=%d,k=%d,ib=%d,jb=%d,kb=%d,M=%d",i,j,k,ib,jb,kb,M(C,i,j,ldc));
 					}
