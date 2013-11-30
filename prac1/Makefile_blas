@@ -10,6 +10,12 @@ mi_gemm_kji: mi_gemm_kji.c
 bloque_ijk: bloque_ijk.c 
 	gcc -c bloque_ijk.c -o bloque_ijk.o 
 	gcc -o bloque_ijk bloque_ijk.o memoryfun.o
+bloque_jki: bloque_jki.c 
+	gcc -c bloque_jki.c -o bloque_jki.o 
+	gcc -o bloque_jki bloque_jki.o memoryfun.o
+bloque_jki: bloque_kji.c 
+	gcc -c bloque_kji.c -o bloque_kji.o 
+	gcc -o bloque_kji bloque_kji.o memoryfun.o
 blas_ddot: blas_ddot.c  
 	gcc -c blas_ddot.c -I /usr/include -o blas_ddot.o 
 	gcc -o blas_ddot blas_ddot.o memoryfun.o -lblas
