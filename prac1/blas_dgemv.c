@@ -43,7 +43,7 @@ for(i=0;i<m;i++)
 	
 //matriz B
 
-for(i=0;i<n;i++)
+for(i=0;i<1;i++)
 	for(j=0;j<n;j++){
 		
 		M(B,i,j,ldb) = rand() % 20;
@@ -53,7 +53,7 @@ for(i=0;i<n;i++)
 
 //matriz C
  
-for(i=0;i<n;i++)
+for(i=0;i<1;i++)
 	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand() % 100;
 		
