@@ -66,7 +66,7 @@ for(i=0;i<n;i++)
 
 inicio = clock();
 
-cblas_dgemv(CblasColMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
+cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
