@@ -43,13 +43,13 @@ if (argc!=3)
 
 	//Vector X
    
-   for (i=0;i<1;i++)
+   for (i=0;i<n;i++)
 	   for(j=0;i<n;j++)
 		   M(X,i,j,ldx) = rand() % 20;  
     
    //Vector Y
    
-   for (i=0;i<1;i++)
+   for (i=0;i<n;i++)
 	   for(j=0;i<n;j++)
 		   M(Y,i,j,ldy) = rand() % 20;
 
@@ -58,7 +58,7 @@ if (argc!=3)
 
 inicio = clock();
 
-cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,m,X,1,0.0,Y,1);
+cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,X,1,0.0,Y,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
