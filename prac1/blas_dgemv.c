@@ -30,7 +30,7 @@ if (argc!=3)
    
 /* Dimensionado de las matrices, utilizando funciones propias */
    lda=m; ldx=n; ldy=n;
-   A=dmatrix(m,m); X=dvector(n); Y=dvector(n);
+   A=dmatrix(m,m); X=dvector(1,n); Y=dvector(1,n);
 
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
@@ -43,14 +43,14 @@ if (argc!=3)
 
 	//Vector X
    
-   for (i=0;i<n;i++)
-	   for(j=0;i<1;j++)
+   for (i=0;i<1;i++)
+	   for(j=0;i<n;j++)
 		   M(X,i,j,ldx) = rand() % 20;  
     
    //Vector Y
    
-   for (i=0;i<n;i++)
-	   for(j=0;i<1;j++)
+   for (i=0;i<1;i++)
+	   for(j=0;i<n;j++)
 		   M(Y,i,j,ldy) = rand() % 20;
 
 // Computa la operación: cblas.dgemmv; y <- alfa*op(A)*x + beta*y
