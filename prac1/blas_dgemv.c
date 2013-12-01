@@ -30,7 +30,7 @@ if (argc!=3)
    
 /* Dimensionado de las matrices, utilizando funciones propias */
    lda=m; ldx=n; ldy=n;
-   A=dmatrix(m,m); X=dmatrix(1,n); Y=dmatrix(1,n);
+   A=dmatrix(m,m); X=dmatrix(n,n); Y=dmatrix(n,n);
 
 
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
