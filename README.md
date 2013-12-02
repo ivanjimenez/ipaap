@@ -57,3 +57,6 @@ Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la mat
 Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación kji. 
 Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000
 
+###cblas_ddot.c
+Computamos la operación cblas_dot<-X^T*Y
+
