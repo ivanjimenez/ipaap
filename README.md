@@ -1,11 +1,12 @@
 ipaap
 =====
 
-Introducción a la Programación de Arquitecturas de Altas Prestaciones
+#Introducción a la Programación de Arquitecturas de Altas Prestaciones
 
-Prácticas de Desarrollo
+##Autor: Iván Jiménez Utiel
 
-###Contenidos de las Carpetas###
+###Práctica 1: Programación Orientada a Bloques
+###Contenidos de las Carpetas y Código Fuente###
 
 ###prac1
 
@@ -34,3 +35,25 @@ prac1_prod-jki.c		=> Producto de Matrices C = A*B con el ordenamiento jki
 prac_prod-kji.c			=> Producto de Matrices C = A*B con el ordenamiento kji
 
 prac_pueba.c			=> Prueba inicial_
+
+###mi_gemm.ijk.c
+Código que realizar el producto de matrices básico teniendo en cuenta la ordenación de bucle ijk
+
+###mi_gemm.jki.c
+Código que realizar el producto de matrices básico teniendo en cuenta la ordenación de bucle jki
+
+###mi_gemm.kji.c
+Código que realizar el producto de matrices básico teniendo en cuenta la ordenación de bucle kji_
+
+###bloque_ijk.c
+Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación ijk. 
+Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000_
+
+###bloque_jki.c
+Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación jki. 
+Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000
+
+###bloque_kji.c
+Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación kji. 
+Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000
+

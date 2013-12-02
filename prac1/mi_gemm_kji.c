@@ -17,7 +17,7 @@ double  duration;
 /* Comprobación número de argumentos correctos. Se pasaran m n k */
 if (argc!=4)
    {
-   printf("Error de Sintaxis. Uso: mi_gemm_ijk m n k\n");
+   printf("Error de Sintaxis. Uso: mi_gemm_kji m n k\n");
    exit(1);
    }
 
@@ -59,7 +59,7 @@ for (k=0; k<2; k++)
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
-printf("C=AB (ijk): %2.5f segundos\n", duration );
+printf("C=AB (kji): %2.5f segundos\n", duration );
 
 
 }
