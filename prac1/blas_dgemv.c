@@ -52,12 +52,9 @@ for(i=0;i<m;i++)
 
 //matriz C
  
-for(i=0;i<n;i++)
-	for(j=0;j<n;j++) {
+
+	for(j=0;j<n;j++) 
 		M(C,i,j,ldc) = rand() % 100;
-		
-	}
-		
 
 
 // Computa la operacion: C <- alfa * op(A) * X * + beta*Y
