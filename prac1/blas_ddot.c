@@ -33,9 +33,10 @@ int main(int argc, char **argv)
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
 	//matrixA 
-	for(i=0;i<n;i++)
-		for(j=0;j<n;j++)
-			M(A,i,j,lda) = rand() % 20;		
+
+		for(i=0;i<n;i++)
+			for(j=0;j<n;j++)
+				M(A,i,j,lda) = rand() % 20;
 	
 	//matrizB 
 
