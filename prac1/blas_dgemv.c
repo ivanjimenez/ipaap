@@ -42,12 +42,12 @@ for(i=0;i<m;i++)
 	
 //matriz B
 
-for(i=0;i<n;i++)
-	for(j=0;j<n;j++){
+
+	for(j=0;j<n;j++)
 		
 		M(B,i,j,ldb) = rand() % 20;
 		
-	}
+	
 		
 
 //matriz C
@@ -66,7 +66,7 @@ for(i=0;i<n;i++)
 inicio = clock();
 
 for(j=0;j<n;j++)
-	M(C,0,j,ldc) = cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
+	M(C,i,j,ldc) = cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
