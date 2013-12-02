@@ -68,9 +68,9 @@ inicio = clock();
 for(ib=0; ib<n; ib++)
 	for(jb=0; jb<n; jb++)
 		for(kb=0; kb<n; kb++)			
-				for(j = jb * alfa; j< (jb * alfa)+1; j++)
-					for(k = kb * alfa; k < (kb * alfa)+1; k++) 
-						for(i = ib * alfa; i< (ib * alfa)+1; i++)
+				for(j = jb * alfa; j< jb * alfa; j++)
+					for(k = kb * alfa; k < kb * alfa; k++) 
+						for(i = ib * alfa; i< ib * alfa; i++)
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 				 	   
                   
