@@ -33,17 +33,7 @@ int main(int argc, char **argv)
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
 	
-	//matrizB 
-
-	for(i=0;i<n;i++)
-		for(j=0;j<n;j++)
-			M(B,i,j,ldb) = rand() % 20;
-				
-	//matrizC
-
-	for(i=0;i<n;i++)
-		for(j=0;j<n;j++)
-			M(C,i,j,ldc) = rand() % 20;
+	
 	
 // Computa la operación: cblas.dot <- X^T*Y
 
