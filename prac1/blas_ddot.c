@@ -36,8 +36,8 @@ int main(int argc, char **argv)
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++) 
-			M(A,i,j,lda) = rand() % 20;
-			
+			M(A,i,j,lda) = rand() % 20;		
+	
 	//matrizB 
 
 	for(i=0;i<n;i++)
@@ -51,7 +51,6 @@ int main(int argc, char **argv)
 			M(C,i,j,ldc) = rand() % 20;
 	
 // Computa la operación: cblas.dot <- X^T*Y
-    
 
 inicio = clock();
 
