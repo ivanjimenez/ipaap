@@ -70,7 +70,7 @@ for(ib=0; ib<n; ib++)
 		for(kb=0; kb<n; kb++)
 			for(i = (ib + 1) * alfa; i< ib * alfa; i++)
 				for(j = (jb + 1) * alfa; j< jb * alfa; j++)
-					for(k = (kb + 1) kb * alfa; k < kb * alfa; k++) {
+					for(k = (kb + 1) * alfa; k < kb * alfa; k++) {
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 						
 					}
