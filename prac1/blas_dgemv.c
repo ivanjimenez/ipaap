@@ -39,11 +39,10 @@ for(i=0;i<m;i++)
 		M(A,i,j,lda) = rand() % 20;
 		
 	}
-		
 	
 //matriz B
 
-for(i=0;i<1;i++)
+for(i=0;i<n;i++)
 	for(j=0;j<n;j++){
 		
 		M(B,i,j,ldb) = rand() % 20;
@@ -53,7 +52,7 @@ for(i=0;i<1;i++)
 
 //matriz C
  
-for(i=0;i<1;i++)
+for(i=0;i<n;i++)
 	for(j=0;j<n;j++) {
 		M(C,i,j,ldc) = rand() % 100;
 		
@@ -66,12 +65,13 @@ for(i=0;i<1;i++)
 
 inicio = clock();
 
-cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
+for(j=0;j<n;j++)
+	M(C,0,j,ldc) = cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
-printf("C <- alfa * op(A) * X * + beta*Y: %2.5f segundos\n", duration );
+printf("C <- alfa * op(A) * X * + beta * Y: %2.5f segundos\n", duration );
 
 
 }
