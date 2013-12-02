@@ -60,3 +60,9 @@ Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la mat
 ###cblas_ddot.c
 Computamos la operación cblas_dot<-X^T*Y
 
+###cblas_degmv.c
+Computamos la operación y <- alfa*op(A)*x + beta*y
+
+###cblas_dgemm.c
+Computamos la operación C <- alfa*op(A)*op*(B)+beta*C
+
