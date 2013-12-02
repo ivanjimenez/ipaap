@@ -62,7 +62,7 @@ for(i=0;i<m;i++)
 
 inicio = clock();
 
-for(j=0;j<n;j++)
+for(j=0;j<m;j++)
 	M(C,i,j,ldc) = cblas_dgemv(CblasRowMajor,CblasNoTrans,m,n,1.0,A,lda,B,1,0.0,C,1);
                   
 fin = clock();
