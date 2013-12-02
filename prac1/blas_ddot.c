@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
 	/* Dimensionado de las matrices, utilizando funciones propias */
 	lda=n; ldb=n; ldc=n; 
-	A=dmatrix(n,n); B=dmatrix(n,n); 
+	A=dmatrix(n,n); B=dmatrix(n,n); C=dmatrix(n,n);
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
@@ -46,7 +46,9 @@ int main(int argc, char **argv)
 	
 	//matrizC 
 
-	
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+			M(C,i,j,ldc) = rand() % 20;
 				
 	
 // Computa la operación: cblas.dot <- X^T*Y
@@ -55,7 +57,7 @@ inicio = clock();
 
 for(i=0;i<n;i++)
 	for(j=0;j<n;j++)
-		printf("%d",cblas_ddot(n,A,i,B,j));
+		cblas_ddot(n,A,i,B,j);
 		
 	
 	   
