@@ -64,7 +64,7 @@ for(i=0;i<n;i++)
 Orden bucle ijk */ 	    
 
 inicio = clock();
-printf("estoy en blucle?");
+
 for(ib=0; ib<n; ib++)
 	for(jb=0; jb<n; jb++)
 		for(kb=0; kb<n; kb++)
@@ -74,7 +74,7 @@ for(ib=0; ib<n; ib++)
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 						
 					}
-printf("estoy en blucle?");	 	   
+ 	   
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
