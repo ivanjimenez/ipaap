@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	int result;
 	int i,j,l;
 	int m,n,k,lda,ldb,ldc;
-	double *A,*B;
+	double *A,*B,*C;
 
 	clock_t inicio, fin;
 	double  duration;
@@ -28,23 +28,27 @@ int main(int argc, char **argv)
 
 	/* Dimensionado de las matrices, utilizando funciones propias */
 	lda=n; ldb=n; 
-	A=dmatrix(n,n); B=dmatrix(n,n);
+	A=dmatrix(n,n); B=dmatrix(n,n); C=matrix(n,n)
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-	//matrixA (n x 1)
-	
+	//matrixA 
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++) 
 			M(A,i,j,lda) = rand() % 20;
 			
-	//matrizB (1 x n)
+	//matrizB 
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			M(B,i,j,ldb) = rand() % 20;
 				
+	//matrizC
+
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+			M(C,i,j,ldc) = rand() % 20;
 	
 // Computa la operación: cblas.dot <- X^T*Y
     
@@ -53,7 +57,7 @@ inicio = clock();
 
 for(i=0;i<n;i++)
 	for(j=0;j<n;j++)
-	   result = cblas_ddot(n,A,j,B,i);
+	   M(C,i,j,ldc) = cblas_ddot(n,A,i,B,j);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
