@@ -53,7 +53,7 @@ inicio = clock();
 
 for(i=0;i<n;i++)
 	for(j=0;j<n;j++)
-	   result = cblas_ddot(n,A,1,B,1);
+	   result = cblas_ddot(n,A,j,B,i);
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
