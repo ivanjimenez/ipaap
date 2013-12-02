@@ -38,13 +38,13 @@ int main(int argc, char **argv)
 			for(j=0;j<n;j++)
 				M(A,i,j,lda) = rand() % 20;
 	
-	//matrizB 
+	//matrizB:: Está será nuestra matriz transpuesta
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			M(B,i,j,ldb) = rand() % 20;
 	
-	//matrizC 
+	//matrizC: Aquí dejaremos el resultado del producto
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
