@@ -26,28 +26,30 @@ int main(int argc, char *argv[]) {
 	
 	/* Proceso 0 divide en np-1 bloques matriz a*/
 	
-	char greeting[MAX_STRING];
-	int comm_sz;
-	int my_rank;
-	int q;
+	MPI_Status st;
+ 	int np,mid,num;
+	MPI_Init(&argc,&argv);
+	MPI_Comm_size(MPI_COMM_WORLD,&np);
+    MPI_Comm_rank(MPI_COMM_WORLD,&mid);
+	printf("Soy el proceso %d de %d \n",mid,np);
 	
-	MPI_Init(NULL, NULL);
-	MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
-	MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-	
-	if (my_rank != 0) {
-		sprintf(greeting, "Greetings from process %d of %d!", my_rank, comm_sz);
-		MPI_Send(greeting, strlen(greeting)+1, MPI_CHAR, 0, 0, MPI_COMM_WORLD);
-		
-	}else {
-		printf("Greetings from process %d of %d!\n", my_rank, comm_sz);
-		for (q=1; q<comm_sz;q++){
-			MPI_Recv(greeting, MAX_STRING, MPI_CHAR, q,0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-			printf("%s\n", greeting);
-		}
+	if (mid==0)
+	{
+	      printf("dame un numero=");
+	      scanf("%d",&num);
+		  num=num+1;
+	      MPI_Send(&num,1,MPI_INT,1,0,MPI_COMM_WORLD);
+	      MPI_Recv(&num,1,MPI_INT,np-1,0,MPI_COMM_WORLD,&st);
+	      printf("El resultado es=%d\n",num);
+	}
+	else
+	{
+	      MPI_Recv(&num,1,MPI_INT,mid-1,0,MPI_COMM_WORLD,&st);
+		  num++;
+	      MPI_Send(&num,1,MPI_INT,(mid+1)%np,0,MPI_COMM_WORLD);
 	}
 	MPI_Finalize();
-	return 0;
+	return 0;  
 
 }
 
