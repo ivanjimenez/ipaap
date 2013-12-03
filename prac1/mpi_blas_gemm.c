@@ -23,19 +23,7 @@ int main(int argc, char *argv[]) {
 		 make -f Makefile_mpi_blas mpi_blas_gemm
 	*/
 
-	int np = 8; //número de procesos
-	int mid;
-	int source = 0; //Proceso 0
-	int dest, tag = 1, i;    
-	
-	double a[][] = {
-		//Valores por defecto
-	}
-	
-	MPI_Init(&argc, &argv);
-	
-	MPI_Comm_size(MPI_COMM_WORLD,&np); //Inicializamos con 8 o menos procesos
-    
+
 	/* Proceso 0 divide en np-1 bloques matriz a*/
 
 }
