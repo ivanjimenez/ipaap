@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	      MPI_Recv(&num,1,MPI_INT,0,0,MPI_COMM_WORLD,&st);
-		  num = num * 10;
+		  num = num + 1;
 	      MPI_Send(&num,1,MPI_INT,0,0,MPI_COMM_WORLD);
 	}
 	MPI_Finalize();
