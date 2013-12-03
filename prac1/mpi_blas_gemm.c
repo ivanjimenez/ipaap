@@ -39,6 +39,7 @@ int main(int argc, char *argv[]) {
 	      printf("dame un numero= ");
 	      scanf("%d",&num);
 		  for (i=1; i<np; i++){
+			  
 			  MPI_Send(&num,1,MPI_INT,i,0,MPI_COMM_WORLD);
 		  }
 	      
