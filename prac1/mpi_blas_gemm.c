@@ -31,6 +31,11 @@ int main(int argc, char *argv[]) {
 	
 	MPI_Init(NULL, NULL);
 	MPI_Comm_size(MPI_COMM_WORLD,&comm_sz);
+	MPI_Coomm_rank(MPI_COMM_WORLD, &my_rank);
+	
+	if (my_rank != 0) {
+		sprintf(greeting, "Greetings from process %d of %d!", my_rank, comm_sz);
+	}
 
 }
 
