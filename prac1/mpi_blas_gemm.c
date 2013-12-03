@@ -19,9 +19,9 @@ int main(int argc, char *argv[]) {
 	   Finalmente, P0 recibe los resultados parciales y muestra la matriz C resultado
 	*/
 
-	
+	int np = 8;
 	MPI_Init(&argc, &argv);
-	MPI_Comm_size(MPI_COMM_WORLD);
+	MPI_Comm_size(MPI_COMM_WORLD,&np);
 }
 
 
