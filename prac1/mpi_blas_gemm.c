@@ -27,19 +27,23 @@ int main(int argc, char *argv[]) {
 	/* Proceso 0 divide en np-1 bloques matriz a*/
 	
 	MPI_Status st;
- 	int np,mid,num;
+ 	int np, mid, num;
 	MPI_Init(&argc,&argv);
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
     MPI_Comm_rank(MPI_COMM_WORLD,&mid);
+	
 	printf("Soy el proceso %d de %d \n",mid,np);
 	
 	if (mid==0)
 	{
-	      printf("dame un numero=");
+	      printf("dame un numero= ");
 	      scanf("%d",&num);
-		  num=num+1;
-	      MPI_Send(&num,1,MPI_INT,1,0,MPI_COMM_WORLD);
-	      MPI_Recv(&num,1,MPI_INT,np-1,0,MPI_COMM_WORLD,&st);
+		  for (i=1; i<np; i++){
+			  MPI_Send(&num,1,MPI_INT,i,0,MPI_COMM_WORLD);
+		  }
+	      
+		  
+	      MPI_Recv(&num,1,MPI_INT, np-1, 0, MPI_COMM_WORLD,&st);
 	      printf("El resultado es=%d\n",num);
 	}
 	else
