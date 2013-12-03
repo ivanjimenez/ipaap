@@ -25,6 +25,8 @@ int main(int argc, char *argv[]) {
 
 
 	/* Proceso 0 divide en np-1 bloques matriz a*/
+	
+	printf("This is a test");
 
 }
 
