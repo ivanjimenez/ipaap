@@ -41,11 +41,12 @@ int main(int argc, char *argv[]) {
 		  for (i=1; i<np; i++){
 			  
 			  MPI_Send(&num,1,MPI_INT,i,0,MPI_COMM_WORLD);
+			  printf("Soy proceso 0 envío a %d\n",i);
 		  }
 	      
-		  
-	          MPI_Recv(&num,1,MPI_INT, np-1, 0, MPI_COMM_WORLD,&st);
-	      printf("El resultado es=%d\n",num);
+	      MPI_Recv(&num,1,MPI_INT, np-1, 0, MPI_COMM_WORLD,&st);
+		  printf("El np-1 es: %d",np-1);
+	  	  printf("El resultado es=%d\n",num);
 	}
 	else
 	{
