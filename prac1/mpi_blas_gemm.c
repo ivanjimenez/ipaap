@@ -50,9 +50,9 @@ int main(int argc, char *argv[]) {
 	}
 	else
 	{
-	      MPI_Recv(&num,1,MPI_INT,mid-1,0,MPI_COMM_WORLD,&st);
+	      MPI_Recv(&num,1,MPI_INT,0,0,MPI_COMM_WORLD,&st);
 		  num = num * 10;
-	      MPI_Send(&num,1,MPI_INT,(mid+1)%np,0,MPI_COMM_WORLD);
+	      MPI_Send(&num,1,MPI_INT,0,0,MPI_COMM_WORLD);
 	}
 	MPI_Finalize();
 	return 0;  
