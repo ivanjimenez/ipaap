@@ -17,6 +17,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mpi.h"
 
 const int MAX_STRING = 100;
@@ -28,6 +29,7 @@ int main(int argc, char *argv[]) {
 	char greeting[MAX_STRING];
 	int comm_sz;
 	int my_rank;
+	int q;
 	
 	MPI_Init(NULL, NULL);
 	MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
