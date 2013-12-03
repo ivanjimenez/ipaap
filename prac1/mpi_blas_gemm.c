@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 	int np = 8; //número de procesos
 	int mid;
 	int source = 0; //Proceso 0
-	int dest, tag = 1, i;
+	int dest, tag = 1, i;    
 	
 	double a[][] = {
 		//Valores por defecto
