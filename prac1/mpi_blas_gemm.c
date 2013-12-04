@@ -37,12 +37,10 @@ int main(int argc, char *argv[]) {
 	
 	if (mid==0)
 	{
-	      printf("dame un numero= ");
-	      scanf("%i",&num);
-		  
+	     
 		  for (i=1; i<np;i++){
 			  MPI_Recv(&num,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
-			  res = num + res;
+			  res = num + 1000;
 		  }
 		  printf("El resultado es: %d\n",res);
 	      
