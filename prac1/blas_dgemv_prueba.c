@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+//#include "memoryfun.h"
+#include "cblas.h" 
+
+
 double m[] = {
   3, 1, 3,
   1, 5, 9,
