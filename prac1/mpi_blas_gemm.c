@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 	
 	printf("Soy el proceso %d de %d \n",mid,np);
-	res = res + 1;
+	
 	if (mid==0)
 	{
 	      printf("dame un numero= ");
