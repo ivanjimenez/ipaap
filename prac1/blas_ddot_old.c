@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
 	
-    double  m[10],n[10];
+    double  m[5],n[5];
           int i;
           int result;
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
           for(i=0;i<10;i++)
           scanf("%lf",&n[i]);
 
-          result = cblas_ddot(10, m, 1, n, 1);
+          result = cblas_ddot(5, m, 1, n, 1);
           printf("The result is %d\n",result);
 
           return 0;
