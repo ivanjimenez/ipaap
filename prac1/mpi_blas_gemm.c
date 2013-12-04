@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 	{
 	     
 		  for (i=1; i<np;i++){
-			  MPI_Recv(&num,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
+			  MPI_Recv(&res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
 			  res = num + 1000;
 		  }
 		  printf("El resultado es: %d\n",res);
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	     
-		  MPI_Send(&num,1,MPI_INT,0,0,MPI_COMM_WORLD);
+		  MPI_Send(&res,1,MPI_INT,0,0,MPI_COMM_WORLD);
 		  printf("Soy el proceso: %d\n",mid);
 	}
 	MPI_Finalize();
