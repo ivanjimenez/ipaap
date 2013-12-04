@@ -20,7 +20,7 @@ int main(int argc, char **argv)
           for(i=0;i<10;i++)
           scanf("%lf",&n[i]);
 
-          result = ddot(m,n);
+          result = cblas_ddot(10, m, 1, n, 1);
           printf("The result is %d\n",result);
 
           return 0;
