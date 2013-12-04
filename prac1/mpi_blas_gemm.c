@@ -27,8 +27,8 @@ int main(int argc, char *argv[]) {
 	/* Proceso 0 divide en np-1 bloques matriz a*/
 	
 	MPI_Status st;
- 	int np, mid, num, i;
-	double res = 0;
+ 	int np, mid, i;
+	double num, res = 0;
 	MPI_Init(&argc,&argv);
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
     MPI_Comm_rank(MPI_COMM_WORLD,&mid);
