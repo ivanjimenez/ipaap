@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 	{
 	     
 		  MPI_Send(&num,1,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
-		 
+		  printf("Soy el proceso: %d\n",mid);
 	}
 	MPI_Finalize();
 	return 0;  
