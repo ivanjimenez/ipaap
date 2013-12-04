@@ -28,19 +28,20 @@ int main(int argc, char *argv[]) {
 	
 	MPI_Status st;
  	int np, mid, i;
-	int num, res = 0;
+	int num, res, my_res = 0;
 	MPI_Init(&argc,&argv);
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
     MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 	
 	printf("Soy el proceso %d de %d \n",mid,np);
+	my_res++;
 	
 	if (mid==0)
 	{
-	     
+		res = my_res;
 		  for (i=1; i<np;i++){
-			  MPI_Recv(&res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
-			  res = i + 1000;
+			  MPI_Recv(&my_res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
+			  res = my_res + 1000;
 		  }
 		  printf("El resultado es: %d\n",res);
 	      
@@ -49,7 +50,7 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	     
-		  MPI_Send(&res,1,MPI_INT,0,0,MPI_COMM_WORLD);
+		  MPI_Send(&my_res,1,MPI_INT,0,0,MPI_COMM_WORLD);
 		  printf("Soy el proceso: %d\n",mid);
 	}
 	MPI_Finalize();
