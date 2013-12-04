@@ -63,7 +63,7 @@ for(i=0;i<n;i++)
 /* producto de matrices BLOQUE
 Orden bucle kji */ 	    
 
-inicio = clock();
+inicio = clock();  
 
 for(ib=0; ib<n; ib++)
 	for(jb=0; jb<n; jb++)
