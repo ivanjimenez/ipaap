@@ -38,23 +38,25 @@ int main(int argc, char *argv[]) {
 	{
 	      printf("dame un numero= ");
 	      scanf("%d",&num);
-		  num = num + 1;
+		  //num = num + 1;
 			  
 			  MPI_Send(&num,1,MPI_INT,1,0,MPI_COMM_WORLD);
+			  
 			  //printf("Soy proceso 0 y envío a %d\n",i);
 			  
-		      MPI_Recv(&num,1,MPI_INT, np-1, 0, MPI_COMM_WORLD,&st);
+		     // MPI_Recv(&num,1,MPI_INT, np-1, 0, MPI_COMM_WORLD,&st);
 			  
-		  	  printf("El resultado es=%d\n",num);
+		  	 // printf("El resultado es=%d\n",num);
 		  
 	      
 	      
 	}
 	else
 	{
-	      MPI_Recv(&num,1,MPI_INT,mid-1,0,MPI_COMM_WORLD,&st);
+	      MPI_Recv(&num,1,MPI_INT,0,0,MPI_COMM_WORLD,&st);
 		  num = num + 1;
-	      MPI_Send(&num,1,MPI_INT,(mid+1)%np,0,MPI_COMM_WORLD);
+	      //MPI_Send(&num,1,MPI_INT,(mid+1)%np,0,MPI_COMM_WORLD);
+		  printf("El resultado es=%d\n",num);
 	}
 	MPI_Finalize();
 	return 0;  
