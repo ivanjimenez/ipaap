@@ -57,7 +57,7 @@ inicio = clock();
 
 for(i=0;i<n;i++)
 	for(j=0;j<n;j++)
-		M(C,i,j,ldc) = cblas_ddot(n,A,lda,B,1);
+		M(C,i,j,ldc) = cblas_ddot(n,A+i,lda,B+j*ldb,1);
 		 
                   
 fin = clock();
