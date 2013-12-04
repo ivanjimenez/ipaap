@@ -38,10 +38,10 @@ int main(int argc, char *argv[]) {
 	{
 	      printf("dame un numero= ");
 	      scanf("%d",&num);
-		  
+		  num = num + 1;
 			  
 			  MPI_Send(&num,1,MPI_INT,i,0,MPI_COMM_WORLD);
-			  printf("Soy proceso 0 y envío a %d\n",i);
+			  //printf("Soy proceso 0 y envío a %d\n",i);
 			  
 		      MPI_Recv(&num,1,MPI_INT, np-1, 0, MPI_COMM_WORLD,&st);
 			  
