@@ -104,8 +104,8 @@ int main(int argc, char *argv[]) {
 			  MPI_Send(&A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 			  
 			  //Enviamos la parte de Matriz B que corresponda
-			  MPI_Send(B+bloqueTam * n*(i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
-		  	  MPI_Recv(&C,ldc,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
+			  MPI_Send(B+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+		  	  MPI_Recv(C+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		  }
 		  
 		  
