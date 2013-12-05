@@ -51,9 +51,9 @@ Orden bucle kji */
 
 inicio = clock();
 
-for (k=0; k<2; k++)
-	for(j=0; j<2; j++)
-		for(i=0; i<2; i++) 
+for (l=0; l<k; l++)
+	for(j=0; j<n; j++)
+		for(i=0; i<m; i++) 
 			M(A,i,j,lda) = M(A,i,j,lda)+(M(A,i,k,lda)*M(B,k,j,ldb));
                   
 fin = clock();
