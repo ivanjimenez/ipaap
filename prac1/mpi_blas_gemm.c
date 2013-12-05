@@ -18,6 +18,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+#include "memoryfun.h"
 #include "mpi.h"
 
 const int MAX_STRING = 100;
@@ -25,6 +27,8 @@ const int MAX_STRING = 100;
 int main(int argc, char *argv[]) {
 	
 	/* Proceso 0 divide en np-1 bloques matriz a*/
+	
+	
 	
 	MPI_Status st;
  	int np, mid, i;
@@ -40,7 +44,7 @@ int main(int argc, char *argv[]) {
 	{
 		res = my_res;
 		  for (i=1; i<np;i++){
-			  MPI_Recv(&my_res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
+			  MPI_Send(&my_res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
 			  res = my_res + 1000;
 		  }
 		  printf("El resultado es: %d\n",res);
