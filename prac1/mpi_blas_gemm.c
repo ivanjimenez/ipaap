@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
 	{
 		res = my_res;
 		  for (i=1; i<np;i++){
-			  MPI_Send(&my_res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
+			  //MPI_Send(&my_res,1,MPI_INT,i, 0, MPI_COMM_WORLD,&st);
 			  res = my_res + 1000;
 		  }
 		  printf("El resultado es: %d\n",res);
