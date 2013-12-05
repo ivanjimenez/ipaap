@@ -106,7 +106,8 @@ int main(int argc, char *argv[]) {
 			  //Enviamos la parte de Matriz B que corresponda
 			  MPI_Send(B+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 		  	  MPI_Recv(C+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
-		      //Imprimir Resultado Matriz Proceso 0
+		      //Imprimir Resultado Matriz 
+			  
 		  }
 	      
 	}
@@ -114,9 +115,9 @@ int main(int argc, char *argv[]) {
 	{
 	      
 		MPI_Recv(&A,lda,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
-		MPI_Recv(&B,bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(&B + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
-		MPI_Send(&C,ldc,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
+		MPI_Send(&C + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
 		  
 	}
 	MPI_Finalize();
