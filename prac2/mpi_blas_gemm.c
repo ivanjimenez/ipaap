@@ -111,6 +111,7 @@ int main(int argc, char *argv[]) {
 			  MPI_Send(B+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 		  	  MPI_Recv(C+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		      //Imprimir Resultado Matriz 
+			  printf("Matriz C: ");
 			  
 		  }
 	      
