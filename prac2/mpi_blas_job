@@ -3,5 +3,5 @@
 #PBS -k eo
 #PBS -l nodes=1:ppn=8
 #PBS -l walltime=00:30:00
-cd $HOME/ipaap/prac2
+cd $PBS_O_WORKDIR
 mpiexec ./mpi_blas_gemm 1000 1000 1000
