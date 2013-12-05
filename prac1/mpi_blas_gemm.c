@@ -112,8 +112,8 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	      
-		MPI_Recv(&A,lda,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
-		MPI_Recv(&B,bloqueTam,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(&A,lda,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(&B,bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
 		MPI_Send(&C,ldc,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
 		  
