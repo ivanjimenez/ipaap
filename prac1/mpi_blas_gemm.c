@@ -28,8 +28,8 @@
 int main(int argc, char *argv[]) {
 	
 	//Declaración de variables para la parte de declaración de matrices
-	int result, bloqueTam, bloqueIni;
-	int i,j,l;
+	int bloqueTam, bloqueIni;
+	int i,j;
 	int m,n,k,lda,ldb,ldc;
 	double *A,*B,*C;
 	
@@ -37,7 +37,6 @@ int main(int argc, char *argv[]) {
 	//Declaración de variables para la parte del MPI
 	MPI_Status st;
  	int np, mid;
-	int num, res, my_res = 0;
 	
 	
 	/* Comprobación número de argumentos correctos. Se pasaran m n k */
@@ -105,10 +104,10 @@ int main(int argc, char *argv[]) {
 		// Enviamos a todos los procesos
 		  for (i=1; i<np;i++){
 			  //Enviamos la Matriz A completa
-			  MPI_Send(&A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD,&st);
+			  MPI_Send(&A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 			  
 			  //Enviamos la parte de Matriz B que corresponda
-			  MPI_Send(&B,bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD,&st);
+			  MPI_Send(&B,bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 		  }
 		  MPI_Recv(&C,ldc,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		  cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
