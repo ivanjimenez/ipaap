@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N mpi_gemm
+#PBS -N mpi_gemm_ijk
 #PBS -k eo
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:30:00
