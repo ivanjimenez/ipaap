@@ -5,3 +5,5 @@
 #PBS -l walltime=00:30:00
 cd $PBS_O_WORKDIR
 mpiexec ./mi_gemm_ijk 1000 1000 1000
+mpiexec ./mi_gemm_jki 1000 1000 1000
+mpiexec ./mi_gemm_jki 1000 1000 1000
