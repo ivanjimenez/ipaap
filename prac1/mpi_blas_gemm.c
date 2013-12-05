@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "cblas.h" 
 #include "memoryfun.h"
 #include "mpi.h"
 
