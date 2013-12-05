@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 			  MPI_Send(&A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 			  
 			  //Enviamos la parte de Matriz B que corresponda
-			  MPI_Send(B+bloqueTam * n,bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+			  MPI_Send(B+bloqueTam * n*(i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 		  }
 		  MPI_Recv(&C,ldc,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		  cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
