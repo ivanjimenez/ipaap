@@ -32,6 +32,8 @@ int main(int argc, char *argv[]) {
 	int i,j;
 	int m,n,k,lda,ldb,ldc;
 	double *A,*B,*C;
+	clock_t inicio, fin;
+	double duration;
 	
 
 	//Declaración de variables para la parte del MPI
@@ -82,6 +84,8 @@ int main(int argc, char *argv[]) {
 	
 		//Inicializamos el entorno del MPI
 	
+	inicio = clock();
+	
 	MPI_Init(&argc,&argv);
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
 	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
@@ -121,6 +125,10 @@ int main(int argc, char *argv[]) {
 		  
 	}
 	MPI_Finalize();
+	fin = clock();
+	duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
+	printf("%d %d\n", n, result);
+	printf("mpi_blas_dgemm: %2.5f segundos\n", duration );
 	return 0;  
 
 }
