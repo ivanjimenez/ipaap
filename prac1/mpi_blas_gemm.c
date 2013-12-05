@@ -62,8 +62,7 @@ int main(int argc, char *argv[]) {
 			M(A,i,j,lda) = rand() % 20;
 		
 		}
-		
-	
+			
 	//matriz B
 
 	for(i=0;i<k;i++)
@@ -73,7 +72,6 @@ int main(int argc, char *argv[]) {
 		
 		}
 		
-
 	//matriz C
  
 	for(i=0;i<m;i++)
@@ -84,10 +82,9 @@ int main(int argc, char *argv[]) {
 	
 		//Inicializamos el entorno del MPI
 	
-	
 	MPI_Init(&argc,&argv);
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
-    MPI_Comm_rank(MPI_COMM_WORLD,&mid);
+	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 	
 	bloqueTam = ldb / np; //tamaño de bloque dividido en procesos
 	
