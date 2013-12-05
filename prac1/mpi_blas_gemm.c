@@ -86,14 +86,14 @@ int main(int argc, char *argv[]) {
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
 	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 	
-	bloqueTam = ldb / np; //tamaño de bloque dividido en procesos
+	bloqueTam = ldb / np - 1; //tamaño de bloque dividido en procesos
 	
 	// si no es múltiplo de np, habrá un resto, ese va a ser el primer bloque
 	// y el resto estáran divididos de forma equitativa
 	// si bloqueIni==0, querrá decir que encaja el número de bloques de n en np
 	// si no, habrá uno distinto y el resto será igual
 	
-	bloqueIni = ldb % np; 
+	bloqueIni = ldb % (np - 1); 
 	
 	
 	if (mid==0)
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 			  MPI_Send(&A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 			  
 			  //Enviamos la parte de Matriz B que corresponda
-			  MPI_Send(&B,bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+			  MPI_Send(B+bloqueTam * n,bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 		  }
 		  MPI_Recv(&C,ldc,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		  cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
