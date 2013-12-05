@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
 	MPI_Finalize();
 	fin = clock();
 	duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-	printf("%d %d\n", n, result);
+	
 	printf("mpi_blas_dgemm: %2.5f segundos\n", duration );
 	return 0;  
 
