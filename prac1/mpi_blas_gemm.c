@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
 			  //Enviamos la parte de Matriz B que corresponda
 			  MPI_Send(&B,bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD,&st);
 		  }
-		  MPI_Receive(&C,ldc,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
+		  MPI_Recv(&C,ldc,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		  cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
 	      
 	      
@@ -117,8 +117,8 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	      
-		MPI_Receive(&A,lda,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
-		MPI_Receive(&B,bloqueTam,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(&A,lda,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(&B,bloqueTam,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
 		cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
 		MPI_Send(&my_res,1,MPI_INT,0,0,MPI_COMM_WORLD);
 		  
