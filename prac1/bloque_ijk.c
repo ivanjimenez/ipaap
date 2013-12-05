@@ -74,7 +74,6 @@ for(ib=0; ib<n; ib++)
 						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
 						
 					}
- 	   
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
