@@ -10,8 +10,8 @@ qsub bloque_jki_1000_50
 qsub bloque_jki_1000_100
 qsub bloque_kji_1000_50
 qsub bloque_kji_1000_100
-qsub blas_ddot 1000
-qsub blas_ddot 2000
+qsub blas_ddot_1000
+qsub blas_ddot_2000
 qsub blas_gemm_1000
 qsub blas_gemm_2000
 qsub blas_dgemv_1000
