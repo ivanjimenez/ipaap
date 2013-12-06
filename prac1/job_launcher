@@ -1,0 +1,3 @@
+qsub mpi_gemm_ijk_1000
+qsub mpi_gemm_jki_1000
+qsub mpi_gemm_kji_1000
