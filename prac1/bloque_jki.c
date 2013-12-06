@@ -71,7 +71,7 @@ for(ib=0; ib<n; ib++)
 				for(j = jb * alfa; j< (jb + 1) * alfa; j++) 
 					for(k = kb * alfa; k < (kb + 1) * alfa; k++) 
 						for(i = ib * alfa; i< (ib + 1) * alfa; i++)
-						M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
+							M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,k,lda) * M(B,k,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
