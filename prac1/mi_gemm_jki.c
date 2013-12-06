@@ -54,7 +54,7 @@ inicio = clock();
 for (j=0; j<n; j++)
 	for(l=0; l<k; l++)
 		for(i=0; i<m; i++) 
-			M(C,i,j,lda) = M(A,i,j,lda)+(M(A,i,l,lda)*M(B,l,j,ldb));
+			M(C,i,j,ldc) = M(C,i,j,ldc)+(M(A,i,l,lda)*M(B,l,j,ldb));
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
