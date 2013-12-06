@@ -4,3 +4,9 @@ qsub mpi_gemm_kji_1000
 qsub mpi_gemm_ijk_2000
 qsub mpi_gemm_jki_2000
 qsub mpi_gemm_kji_2000
+qsub bloque_ijk_1000_50
+qsub bloque_ijk_1000_100
+qsub bloque_jki_1000_50
+qsub bloque_jki_1000_100
+qsub bloque_kji_1000_50
+qsub bloque_kji_1000_100

@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -N bloque_jki_1000_50
+#PBS -k eo
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:30:00
+cd $PBS_O_WORKDIR
+mpiexec ./bloque_jki 1000 50
