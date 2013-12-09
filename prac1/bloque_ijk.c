@@ -48,7 +48,6 @@ for(i=0;i<n;i++)
 		M(B,i,j,ldb) = rand() % 20;
 		
 	}
-		
 
 //matriz C
 
@@ -59,7 +58,6 @@ for(i=0;i<n;i++)
 	}
 		
 
-
 /* producto de matrices BLOQUE
 Orden bucle ijk */ 	    
 
@@ -68,8 +66,8 @@ inicio = clock();
 for (ib = 0; ib < n; ib++) 
 	for (jb = 0; jb < n; jb++)
 		for (kb = 0; kb < n; kb++)
-			for (i = ib * alfa; i < (ib +1) * alfa; i++)
-				for (j = jb * alfa; j < (jb +1) * alfa; j++)
+			for (i = ib * alfa; i < (ib + 1)*alfa; i++)
+				for (j = jb * alfa; j < (jb + 1)*alfa; j++)
 					for (k = kb * alfa; kb < (kb +1)*alfa;k++)
 						M(C,i,j,ldc) = M(C,i,j,ldc) + (M(A,i,k,lda) * M(B,k,j,ldb));
 
