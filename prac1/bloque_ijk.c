@@ -72,4 +72,4 @@ for (i = 0; i < n; i++)
 fin = clock();					
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d\n", n, alfa);
-printf("bloque ijk: %2.5f segundos\n", duration );
+printf("Bloques:: C=AB (jki): %2.5f segundos\n", duration );
