@@ -66,11 +66,8 @@ Orden bucle ijk */
 inicio = clock();
 
 for (ib = 0; ib < n; ib++) 
-	return 0;
-	
+	return ib * alfa;
 					
-						
-
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d \n", n, alfa);
