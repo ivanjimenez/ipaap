@@ -66,13 +66,9 @@ Orden bucle ijk */
 inicio = clock();
 
 for (ib = 0; ib < n; ib++) 
-	for (jb = 0; jb < n; jb++)
-		for (kb = 0; kb < n; kb++)
-			for (i = ib * alfa; i < alfa * (ib +1); i++)
-				for (j = jb * alfa; j < alfa * (jb +1); j++)
-					for (k = kb * alfa; kb < alfa * (kb +1);k++){
-						M(C,i,j,ldc) = M(C,i,j,ldc) + (M(A,i,k,lda) * M(B,k,j,ldb));
-					}
+	return 0;
+	
+					
 						
 
 fin = clock();
