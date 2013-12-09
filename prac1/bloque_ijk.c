@@ -70,8 +70,10 @@ for (ib = 0; ib < n; ib++)
 		for (kb = 0; kb < n; kb++)
 			for (i = ib * alfa; i < alfa * (ib +1); i++)
 				for (j = jb * alfa; j < alfa * (jb +1); j++)
-					for (k = kb * alfa; kb < alfa * (kb +1);k++)
-						//M(C,i,j,ldc) = M(C,i,j,ldc) + (M(A,i,k,lda) * M(B,k,j,ldb));
+					for (k = kb * alfa; kb < alfa * (kb +1);k++){
+						M(C,i,j,ldc) = M(C,i,j,ldc) + (M(A,i,k,lda) * M(B,k,j,ldb));
+					}
+						
 
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
