@@ -9,6 +9,7 @@
 int main(int argc, char **argv)
 {
 int i,j,l, alfa;
+int ib, jb, kb;
 int m,n,k,lda,ldb,ldc;
 double *A,*B,*C;
 
