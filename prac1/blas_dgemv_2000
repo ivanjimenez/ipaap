@@ -4,4 +4,4 @@
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:30:00
 cd $PBS_O_WORKDIR
-mpiexec ./blas_dgemv 2000
+mpiexec ./blas_dgemv 2000 2000
