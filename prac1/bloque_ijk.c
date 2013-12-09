@@ -65,13 +65,17 @@ Orden bucle ijk */
 
 inicio = clock();
 
-for (i = 0; i < n; i++) 
-	for (j = 0; j<n; j++)
-		M(C,i,j,ldc) = M(A,i,j,lda)+M(B,i,j,ldb);
-
+for (ib = 0; ib < n; ib++)
+	for (jb = 0; jb < n; jb++)
+		for(kb = 0; kb < n; kb++)
+			for(i=ib*alfa;i<(ib+1)*alfa;i++)
+				for(j=jb*alfa;j<(jb+1)*alfa;j++)
+					for(k=kb*alfa;i<(kb+1)*alfa;k++)
+						M(C,i,j,ldc) = M(C,i,j,ldc) + (M(A,i,k,lda) * M(B,k,j,ldb));
+				
 fin = clock();					
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d\n", n, alfa);
-printf("Bloques:: C=AB (jki): %2.5f segundos\n", duration );
+printf("Bloques:: C=AB (ijk): %2.5f segundos\n", duration );
 
 }
