@@ -35,30 +35,22 @@ A=dmatrix(m,m); B=dmatrix(n,n); C=dmatrix(n,n);
 //matriz A
 
 for(i=0;i<m;i++)
-	for(j=0;j<m;j++) {
-		M(A,i,j,lda) = rand() % 20;
-		
-	}
+	for(j=0;j<m;j++)
+		M(A,i,j,lda) = rand() % 20;	
+	
 	
 //matriz B
 
-
 	for(j=0;j<n;j++)
-		
 		M(B,i,j,ldb) = rand() % 20;
 		
-	
-		
-
 //matriz C
- 
 
 	for(j=0;j<n;j++) 
 		M(C,i,j,ldc) = rand() % 100;
 
 
 // Computa la operacion: C <- alfa * op(A) * X * + beta*Y
-    
 
 inicio = clock();
 
@@ -70,6 +62,4 @@ duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d %d\n", m, n, k);
 printf("C <- alfa * op(A) * X * + beta * Y: %2.5f segundos\n", duration );
 
-
 }
-
