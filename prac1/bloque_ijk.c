@@ -73,3 +73,5 @@ fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d\n", n, alfa);
 printf("Bloques:: C=AB (jki): %2.5f segundos\n", duration );
+
+}
