@@ -32,33 +32,19 @@ A=dmatrix(n,n); B=dmatrix(n,n); C=dmatrix(n,n);
 /* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
 //matriz A
-
 for(i=0;i<n;i++)
-	for(j=0;j<n;j++) {
-		M(A,i,j,lda) = rand() % 20;
-			
-	}
-		
+	for(j=0;j<n;j++)
+		M(A,i,j,lda) = rand();
 	
 //matriz B
-
 for(i=0;i<n;i++)
-	for(j=0;j<n;j++){
-		
-		M(B,i,j,ldb) = rand() % 20;
-		
-	}
-		
+	for(j=0;j<n;j++)
+		M(B,i,j,ldb) = rand();
 
 //matriz C
-
 for(i=0;i<n;i++)
-	for(j=0;j<n;j++) {
-		M(C,i,j,ldc) = rand() % 20;
-		
-	}
-		
-   
+	for(j=0;j<n;j++)
+		M(C,i,j,ldc) = rand(); 
 
 /* producto de matrices BLOQUE
 Orden bucle ijk */ 	    
