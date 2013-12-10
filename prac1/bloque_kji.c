@@ -65,9 +65,9 @@ Orden bucle kji */
 
 inicio = clock();  
 
-for(ib=0; ib<n; ib++)
-	for(jb=0; jb<n; jb++)
-		for(kb=0; kb<n; kb++)
+for (ib = 0; ib < (n/alfa); ib++)
+	for (jb = 0; jb < (n/alfa); jb++)
+		for(kb = 0; kb < (n/alfa); kb++)
 			for(k = kb * alfa; k < (kb + 1) * alfa; k++) 					
 				for(j = jb * alfa; j< (jb + 1) * alfa; j++)
 					for(i = ib * alfa; i< (ib + 1) * alfa; i++)
