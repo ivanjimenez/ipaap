@@ -51,9 +51,9 @@ Orden bucle ijk */
 
 inicio = clock();
 
-for (ib = ib *alfa; ib < n; ib+alfa)
-	for (jb = jb*alfa; jb < n; jb+alfa)
-		for(kb = jb*alfa; kb < n; kb+alfa)
+for (ib = ib *alfa; ib < n; i++)
+	for (jb = jb*alfa; jb < n; jb++)
+		for(kb = jb*alfa; kb < n; kb++)
 			for(i=ib*alfa;i<(ib+1)*alfa;i++)
 				for(j=jb*alfa;j<(jb+1)*alfa;j++)
 					for(k=kb*alfa;i<(kb+1)*alfa;k++){
