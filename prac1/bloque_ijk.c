@@ -56,12 +56,9 @@ for (ib = 0; ib < (n/alfa); ib++)
 		for(kb = 0; kb < (n/alfa); kb++)
 			for(i=ib*alfa;i<(ib+1)*alfa;i++)
 				for(j=jb*alfa;j<(jb+1)*alfa;j++)
-					for(k=kb*alfa;i<(kb+1)*alfa;k++){
+					for(k=kb*alfa;i<(kb+1)*alfa;k++)
 						M(C,i,j,ldc) = M(C,i,j,ldc) + (M(A,i,k,lda) * M(B,k,j,ldb));
-						
-					}
-						
-						
+					
 				
 fin = clock();					
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
