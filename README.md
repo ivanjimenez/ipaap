@@ -66,3 +66,28 @@ Computamos la operación y <- alfa*op(A)*x + beta*y
 ###cblas_dgemm.c
 Computamos la operación C <- alfa*op(A)*op*(B)+beta*C
 
+###mpi_jobs
+Carpeta que contiene los Ficheros de Salida de los Trabajos MPI_
+
+###Trabajos MPI
+mpi_gemm_ijk_1000
+mpi_gemm_ijk_2000
+mpi_gemm_jki_1000
+mpi_gemm_jki_2000
+mpi_gemm_kji_1000
+mpi_gemm_kji_2000
+bloque_ijk_1000_50
+bloque_ijk_1000_100
+bloque_jki_1000_50
+bloque_jki_1000_100
+bloque_kji_1000_50
+bloque_kji_1000_100
+blas_gemm_1000
+blas_gemm_2000
+blas_degmv_1000
+blas_dgemv_2000
+blas_ddot_1000
+blas_ddot_2000
+
+
+
