@@ -102,9 +102,11 @@ int main(int argc, char *argv[]) {
 			  
 			  //Enviamos la parte de Matriz B que corresponda
 			  MPI_Send(B+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
-		  	 
-			  MPI_Recv(C+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		    			  
+		  }
+		  
+		  for (i=1; i<np; i++){
+		  	  MPI_Recv(C+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,mid,0,MPI_COMM_WORLD,&st);
 		  }
 		  
 	      //Imprimir Resultado Matriz 
