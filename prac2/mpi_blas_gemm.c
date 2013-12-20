@@ -57,30 +57,6 @@ int main(int argc, char *argv[]) {
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-	//matriz A
-
-	for(i=0;i<m;i++)
-		for(j=0;j<k;j++) {
-			M(A,i,j,lda) = rand() % 20;
-		
-		}
-			
-	//matriz B
-
-	for(i=0;i<k;i++)
-		for(j=0;j<n;j++){
-		
-			M(B,i,j,ldb) = rand() % 20;
-		
-		}
-		
-	//matriz C
- 
-	for(i=0;i<m;i++)
-		for(j=0;j<n;j++) {
-			M(C,i,j,ldc) = rand() % 100;
-		
-		}
 	
 		//Inicializamos el entorno del MPI
 	
@@ -90,7 +66,7 @@ int main(int argc, char *argv[]) {
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
 	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 	
-	bloqueTam = ldb / np - 1; //tamaño de bloque dividido en procesos
+	bloqueTam = n / np - 1; //tamaño de bloque dividido en procesos
 	
 	// si no es múltiplo de np, habrá un resto, ese va a ser el primer bloque
 	// y el resto estáran divididos de forma equitativa
@@ -101,11 +77,28 @@ int main(int argc, char *argv[]) {
 	
 	
 	if (mid==0)
+		
 	{
+		//matriz A
+
+		for(i=0;i<m;i++)
+			for(j=0;j<k;j++) {
+				M(A,i,j,lda) = rand() % 20;
+		
+			}
+			
+		//matriz B
+
+		for(i=0;i<k;i++)
+			for(j=0;j<n;j++){
+		
+				M(B,i,j,ldb) = rand() % 20;
+		
+			}
 		// Enviamos a todos los procesos
 		  for (i=1; i<np;i++){
 			  //Enviamos la Matriz A completa
-			  MPI_Send(&A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+			  MPI_Send(A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 			  
 			  //Enviamos la parte de Matriz B que corresponda
 			  MPI_Send(B+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
@@ -121,10 +114,10 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	      
-		MPI_Recv(&A,lda,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
-		MPI_Recv(&B + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(A,lda,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(B + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
-		MPI_Send(&C + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
+		MPI_Send(C + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
 		  
 	}
 	MPI_Finalize();
