@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 	// si bloqueIni==0, querrá decir que encaja el número de bloques de n en np
 	// si no, habrá uno distinto y el resto será igual
 	
-	bloqueIni = ldb % (np - 1); 
+	bloqueIni = n % (np - 1); 
 	
 	
 	if (mid==0)
