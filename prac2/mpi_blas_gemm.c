@@ -98,15 +98,15 @@ int main(int argc, char *argv[]) {
 		// Enviamos a todos los procesos
 		  for (i=1; i<np;i++){
 			  //Enviamos la Matriz A completa
-			  MPI_Send(A,lda,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+			  MPI_Send(A,m*k,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 			  
 			  //Enviamos la parte de Matriz B que corresponda
-			  MPI_Send(B+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+			  MPI_Send(B+bloqueTam * n * (i-1),k * bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
 		    			  
 		  }
 		  
 		  for (i=1; i<np; i++){
-		  	  MPI_Recv(C+bloqueTam * n * (i-1),bloqueTam * n,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
+		  	  MPI_Recv(C+bloqueTam * n * (i-1),m * bloqueTam,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
 		  }
 		  
 	      //Imprimir Resultado Matriz 
@@ -118,10 +118,10 @@ int main(int argc, char *argv[]) {
 	else
 	{
 	      
-		MPI_Recv(A,lda,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
-		MPI_Recv(B + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(A,m*k,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(B + bloqueTam * n * (i - 1),k * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
-		MPI_Send(C + bloqueTam * n * (i - 1),bloqueTam * n,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
+		MPI_Send(C + bloqueTam * n * (i - 1),m *bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
 		  
 	}
 	MPI_Finalize();
