@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 	
 		//Inicializamos el entorno del MPI
 	
-	inicio = clock();
+	
 	
 	MPI_Init(&argc,&argv);
 	MPI_Comm_size(MPI_COMM_WORLD,&np);
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
 	
 	bloqueIni = n % (np - 1); 
 	
-	
+	inicio = clock();
 	if (mid==0)
 		
 	{
@@ -95,6 +95,7 @@ int main(int argc, char *argv[]) {
 				M(B,i,j,ldb) = rand() % 20;
 		
 			}
+			
 		// Enviamos a todos los procesos
 		  for (i=1; i<np;i++){
 			  //Enviamos la Matriz A completa
@@ -121,7 +122,7 @@ int main(int argc, char *argv[]) {
 		MPI_Recv(A,m*k,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		MPI_Recv(B + bloqueTam * n * (i - 1),k * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		cblas_dgemm(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
-		MPI_Send(C + bloqueTam * n * (i - 1),m *bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
+		MPI_Send(C + bloqueTam * n * (i - 1),m * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
 		  
 	}
 	MPI_Finalize();
