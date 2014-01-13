@@ -9,9 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
 #include "memoryfun.h"
-
 
 double m[] = {
   3, 1, 3,
@@ -35,11 +33,10 @@ main()
     putchar('\n');
   }
 
-  info = dgesv(CblasRowMajor, 3, 1, m, 3, ipiv, x, 3);
+  info = clapack_dgesv(CblasRowMajor, 3, 1, m, 3, ipiv, x, 3);
   if (info != 0) fprintf(stderr, "failure with error %d\n", info);
 
   for (i=0; i<3; ++i) printf("%5.1f %3d\n", x[i], ipiv[i]);
 
   return 0;
 }
-
