@@ -41,6 +41,22 @@ int main(int argc, char *argv[]) {
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
+	//matriz A
+
+	for(i=0;i<m;i++)
+		for(j=0;j<k;j++) {
+			M(A,i,j,lda) = rand() % 20;
+	
+		}
+		
+	//matriz B
+
+	for(i=0;i<k;i++)
+		for(j=0;j<n;j++){
+	
+			M(B,i,j,ldb) = rand() % 20;
+	
+		}
 	
 /***************Inicializamos el entorno del MPI************/
 	MPI_Status st;
@@ -51,70 +67,49 @@ int main(int argc, char *argv[]) {
 	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 
 /***************Inicializamos el entorno BLACS************/
-	int context, row, col;
+	int context;
+	
 	
 	Cblacs_pinfo(&mid,&np);
 	Cblacs_get(-1,0,&context);
-	Cblacs_gridinit(&context,"R",row,col);	
+	Cblacs_gridinit(&context,"R",1,1);	
 	
 /***************Inicializamos el entorno de las matrices************/	
 	double alpha = 1.;
 	double beta = 0.;
+	
 	bloqueTam = n / np - 1; //tamaño de bloque dividido en procesos
 	bloqueIni = n % (np - 1); 
-	
-	
-	inicio = clock();
-	
-	if (mid==0)
-		
-	{
-		//matriz A
 
-		for(i=0;i<m;i++)
-			for(j=0;j<k;j++) {
-				M(A,i,j,lda) = rand() % 20;
-		
-			}
-			
-		//matriz B
+/***************Inicializamos las colas ************/
+	
+	inicio = clock();	
+	
+	int info;
+	int desc[9];
+	int zero = 0; int one = 1;
 
-		for(i=0;i<k;i++)
-			for(j=0;j<n;j++){
-		
-				M(B,i,j,ldb) = rand() % 20;
-		
-			}
+	int num_cols_local = numroc_ (&n, &bloqueTam, &mid, &zero, &np);
+	int num_cols_local_protect = MAX (1, num_cols_local);
+	int num_rows_local = numroc_ (&m, &bloqueTam, &mid, &zero, &np);
+	int num_rows_local_protect = MAX (1, num_rows_local);
+	
+
 			
-		// Enviamos a todos los procesos
-		  for (i=1; i<np;i++){
-			  //Enviamos la Matriz A completa
-			  MPI_Send(A,m*k,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+	// Distribuimos los datos
 			  
-			  //Enviamos la parte de Matriz B que corresponda
-			  MPI_Send(B+bloqueTam * n * (i-1),k * bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
-		    			  
-		  }
+	//Pregunta: ¿Debería haber un descinit por cada Matriz a multiplicar?
+	
+	          descinit_(desc,&m,&n,&bloqueTam,&bloqueTam,&zero,&zero)
+	
+	//Rutina de multiplicación de matrices	  
 		  
-		  for (i=1; i<np; i++){
-		  	  MPI_Recv(C+bloqueTam * n * (i-1),m * bloqueTam,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
-		  }
 		  
-	      //Imprimir Resultado Matriz 
+	//Imprimir Resultado Matriz 
 		  for(i=0;i<m;i++)
 			  for(j=0;j<n;j++)
 				  printf("Matriz C(i,j): %d\n", M(C,i,j,ldc));
-	      
-	}
-	else
-	{
-	      
-		MPI_Recv(A,m*k,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
-		MPI_Recv(B + bloqueTam * n * (i - 1),k * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
-		dgemm_('N','N','N',&m,&n,&k,&alpha,&A,&lda,&B,&ldb,&beta,&C,&ldc);
-		MPI_Send(C + bloqueTam * n * (i - 1),m * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
-		  
-	}
+		
 	Cblacs_exit(); //cerramos blacs
 	MPI_Finalize();
 	fin = clock();
