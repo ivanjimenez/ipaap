@@ -96,19 +96,23 @@ int main(int argc, char *argv[]) {
 	
 
 			
-	// Distribuimos los datos
+		// Distribuimos los datos
 			  
 	//Pregunta: ¿Debería haber un descinit por cada Matriz a multiplicar?
 	
-	          descinit_(desc,&m,&n,&bloqueTam,&bloqueTam,&zero,&zero)
+	          descinit_(desc,&m,&n,&bloqueTam,&bloqueTam,&zero,&zero,&context);
+  
+		  
 	
-	//Rutina de multiplicación de matrices	  
-		  
-		  
+    //Rutina multiplicación
+			  
+    dgemm_('N','N','N',&m,&n,&k,&alpha,&A,&lda,&B,&ldb,&beta,&C,&ldc);
+	
 	//Imprimir Resultado Matriz 
 		  for(i=0;i<m;i++)
 			  for(j=0;j<n;j++)
 				  printf("Matriz C(i,j): %d\n", M(C,i,j,ldc));
+	      	
 		
 	Cblacs_exit(); //cerramos blacs
 	MPI_Finalize();
