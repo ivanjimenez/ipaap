@@ -5,75 +5,118 @@
    
 */
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include "mpi.h"
 
-#define AA(i,j) AA[(i)*M+(j)]
 
 
-int main(int argc, char **argv) {
-   int i, j, k;
-/************  MPI ***************************/
-   int myrank_mpi, nprocs_mpi;
-   MPI_Init( &argc, &argv);
-   MPI_Comm_rank(MPI_COMM_WORLD, &myrank_mpi);
-   MPI_Comm_size(MPI_COMM_WORLD, &nprocs_mpi);
-/************  BLACS ***************************/
-   int ictxt, nprow, npcol, myrow, mycol,nb;
-   int info,itemp;
-   int ZERO=0,ONE=1;
-   nprow = 2; npcol = 2; nb =2;
-   Cblacs_pinfo( &myrank_mpi, &nprocs_mpi ) ;
-   Cblacs_get( -1, 0, &ictxt );
-   Cblacs_gridinit( &ictxt, "Row", nprow, npcol );
-   Cblacs_gridinfo( ictxt, &nprow, &npcol, &myrow, &mycol );
-   int M=5;
-   double *AA = (double*) malloc(M*M*sizeof(double));
-   for(i=0;i<M;i++ )
-     for(j=0;j<M;j++)
-        AA[i*M+j]=(2*i+3*j+1);
+int main(int argc, char *argv[]) {
+	
+	//Declaración de variables para la parte de declaración de matrices
+	int bloqueTam, bloqueIni;
+	int i,j;
+	int m,n,k,lda,ldb,ldc;
+	double *A,*B,*C;
+	clock_t inicio, fin;
+	double duration;
+	
+	/* Comprobación número de argumentos correctos. Se pasaran m n k */
+	if (argc!=4)
+	   {
+	   printf("Error de Sintaxis. Uso: mpi_blas_gemm m n k\n");
+	   exit(1);
+	   }
 
-   double *X = (double*) malloc(M*sizeof(double));
-   X[0]=1;X[1]=1;X[2]=0;X[3]=0;X[4]=1;
+	/* Lectura de parametros de entrada */
+	m=atoi(argv[1]); n=atoi(argv[2]); k=atoi(argv[3]);
 
-   int descA[9],descx[9],descy[9];
-   int mA = numroc_( &M, &nb, &myrow, &ZERO, &nprow );
-   int nA = numroc_( &M, &nb, &mycol, &ZERO, &npcol );
-   int nx = numroc_( &M, &nb, &myrow, &ZERO, &nprow );
-   int my = numroc_( &M, &nb, &myrow, &ZERO, &nprow );
-   descinit_(descA, &M,   &M,   &nb,  &nb,  &ZERO, &ZERO, &ictxt, &mA,  &info);
-   descinit_(descx, &M, &ONE,   &nb, &ONE,  &ZERO, &ZERO, &ictxt, &nx, &info);
+	/* Dimensionado de las matrices, utilizando funciones propias */
+	lda=m; ldb=k; ldc=m;
+	A=dmatrix(m,k); B=dmatrix(k,n); C=dmatrix(m,n);
 
-   descinit_(descy, &M, &ONE,   &nb, &ONE,  &ZERO, &ZERO, &ictxt, &my, &info);
-   double *x = (double*) malloc(nx*sizeof(double));
-   double *y = (double*) calloc(my,sizeof(double));
-   double *A = (double*) malloc(mA*nA*sizeof(double));
-   int sat,sut;
-   for(i=0;i<mA;i++)
+	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-   for(j=0;j<nA;j++){
-                sat= (myrow*nb)+i+(i/nb)*nb;
-                sut= (mycol*nb)+j+(j/nb)*nb;
-                A[j*mA+i]=AA(sat,sut);
-        }
+	
+/***************Inicializamos el entorno del MPI************/
+	MPI_Status st;
+ 	int np, mid;
+	
+	MPI_Init(&argc,&argv);
+	MPI_Comm_size(MPI_COMM_WORLD,&np);
+	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
 
+/***************Inicializamos el entorno BLACS************/
+	int context, row, col;
+	
+	Cblacs_pinfo(&mid,&np);
+	Cblacs_get(-1,0,&context);
+	Cblacs_gridinit(&context,"R",row,col);	
+	
+/***************Inicializamos el entorno de las matrices************/	
+	bloqueTam = n / np - 1; //tamaño de bloque dividido en procesos
+	bloqueIni = n % (np - 1); 
+	
+	
+	inicio = clock();
+	
+	if (mid==0)
+		
+	{
+		//matriz A
 
-   for(i=0;i<nx;i++){
-                sut= (myrow*nb)+i+(i/nb)*nb;
-                x[i]=X[sut];
-        }
+		for(i=0;i<m;i++)
+			for(j=0;j<k;j++) {
+				M(A,i,j,lda) = rand() % 20;
+		
+			}
+			
+		//matriz B
 
-   double alpha = 1.0; double beta = 0.0;
-   pdgemv_("N",&M,&M,&alpha,A,&ONE,&ONE,descA,x,&ONE,&ONE,descx,&ONE,&beta,y,&ONE,&ONE,descy,&ONE);
+		for(i=0;i<k;i++)
+			for(j=0;j<n;j++){
+		
+				M(B,i,j,ldb) = rand() % 20;
+		
+			}
+			
+		// Enviamos a todos los procesos
+		  for (i=1; i<np;i++){
+			  //Enviamos la Matriz A completa
+			  MPI_Send(A,m*k,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+			  
+			  //Enviamos la parte de Matriz B que corresponda
+			  MPI_Send(B+bloqueTam * n * (i-1),k * bloqueTam,MPI_DOUBLE,i, 0, MPI_COMM_WORLD);
+		    			  
+		  }
+		  
+		  for (i=1; i<np; i++){
+		  	  MPI_Recv(C+bloqueTam * n * (i-1),m * bloqueTam,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&st);
+		  }
+		  
+	      //Imprimir Resultado Matriz 
+		  for(i=0;i<m;i++)
+			  for(j=0;j<n;j++)
+				  printf("Matriz C(i,j): %d\n", M(C,i,j,ldc));
+	      
+	}
+	else
+	{
+	      
+		MPI_Recv(A,m*k,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		MPI_Recv(B + bloqueTam * n * (i - 1),k * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
+		//dgemm_(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
+		MPI_Send(C + bloqueTam * n * (i - 1),m * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
+		  
+	}
+	Cblacs_exit(); //cerramos blacs
+	MPI_Finalize();
+	fin = clock();
+	duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
+	printf("mpi_blas_dgemm: %2.5f segundos\n", duration );
+	return 0;  
 
-   Cblacs_barrier(ictxt,"A");
-   for(i=0;i<my;i++)
-   printf("rank=%d %.2f \n", myrank_mpi,y[i]);
-   Cblacs_gridexit( 0 );
-   MPI_Finalize();
-   return 0;
 }
-
