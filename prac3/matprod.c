@@ -58,6 +58,8 @@ int main(int argc, char *argv[]) {
 	Cblacs_gridinit(&context,"R",row,col);	
 	
 /***************Inicializamos el entorno de las matrices************/	
+	double alpha = 1.;
+	double beta = 0.;
 	bloqueTam = n / np - 1; //tamaño de bloque dividido en procesos
 	bloqueIni = n % (np - 1); 
 	
@@ -109,7 +111,7 @@ int main(int argc, char *argv[]) {
 	      
 		MPI_Recv(A,m*k,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
 		MPI_Recv(B + bloqueTam * n * (i - 1),k * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&st);
-		//dgemm_(CblasColMajor,CblasNoTrans,CblasNoTrans,m,n,k,1.0,A,lda,B,ldb,0.0,C,ldc);
+		dgemm_('N','N','N',&m,&n,&k,&alpha,&A,&lda,&B,&ldb,&beta,&C,&ldc);
 		MPI_Send(C + bloqueTam * n * (i - 1),m * bloqueTam,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
 		  
 	}
