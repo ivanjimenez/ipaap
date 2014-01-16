@@ -71,6 +71,7 @@ int main(int argc, char *argv[]) {
 /***************Inicializamos el entorno BLACS************/
 	int context;
 	int mytid, tid;
+	int np_fil, np_col;
 	
 	Cblacs_pinfo(&mytid,&tid);
 	Cblacs_get(-1,0,&context);
