@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 	int mytid, tid;
 	
 	Cblacs_pinfo(&mytid,&tid);
-	Cblacs_get(-1,0,&context);
+	Cblacs_get(0,0,&context);
 	Cblacs_gridinit(&context,"R",np_fil,np_col);	
 	
 /***************Inicializamos el entorno de las matrices************/	
