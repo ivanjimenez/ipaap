@@ -63,8 +63,8 @@ int main(int argc, char *argv[]) {
 	
 	
 	MPI_Init(&argc,&argv);
-	MPI_Comm_size(MPI_COMM_WORLD,&np);
-	MPI_Comm_rank(MPI_COMM_WORLD,&mid);
+	MPI_Comm_size(MPI_COMM_WORLD,&np); // Duda: ¿deben estar incluidos?
+	MPI_Comm_rank(MPI_COMM_WORLD,&mid); // Duda: ¿deben estar incluidos?
 	
 	bloqueTam = n / np - 1; //tamaño de bloque dividido en procesos
 	
