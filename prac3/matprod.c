@@ -13,8 +13,6 @@ by Iván Jiménez
 #include "memoryfun.h"
 #include "mpi.h"
 
-
-
 int main(int argc, char *argv[]) {
         
 /***** Declaración de variables para la parte de declaración de matrices ******/
