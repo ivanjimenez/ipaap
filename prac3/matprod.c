@@ -1,7 +1,6 @@
-/* Compile with: gcc samplep2.c -o samplep2 -fopenmp
- IPAAP - Prac3
- by Iván Jiménez
-	 
+/* 
+ IPAAP - Práctica 3
+ by Iván Jiménez	 
    
 */
 
@@ -25,19 +24,25 @@ int main(int argc, char *argv[]) {
 	double *A,*B,*C;
 	clock_t inicio, fin;
 	double duration;
+
+/***** Declaración de variables para la parte número de procesos del Grid ******/
+	
 	int np_fil, np_col;
 	
 /*** Comprobación número de argumentos correctos. Se pasaran m n np_fil np_col */
+	
 	if (argc!=5)
 	   {
 	   printf("Error de Sintaxis. Uso: matprod m n np_fil np_col\n");
 	   exit(1);
 	   }
 
-	/* Lectura de parametros de entrada */
+/*** Lectura de parametros de entrada ***/
+	   
 	m=atoi(argv[1]); n=atoi(argv[2]); np_fil=atoi(argv[3]); np_col=atoi(argv[4]);
 
-	/* Dimensionado de las matrices cuadradas, utilizando funciones propias */
+/*** Dimensionado de las matrices cuadradas, utilizando funciones propias */
+	
 	lda=m; ldb=m; ldc=m;
 	A=dmatrix(m,n); B=dmatrix(m,n); C=dmatrix(m,n);
 
@@ -90,7 +95,7 @@ int main(int argc, char *argv[]) {
 	inicio = clock();	
 	
 	printf("Creo el grid\n");     
-	printf("Proceso: %d",mytid,tid); 	
+	printf("Proceso: %d\n",mytid,tid); 	
 		
 	Cblacs_exit(); //cerramos blacs
 	MPI_Finalize();
