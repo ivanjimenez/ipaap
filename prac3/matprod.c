@@ -114,8 +114,7 @@ int main(int argc, char *argv[]) {
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++){
                                 M(C,i,j,ldc) = rand() % 20;
-                        }
-                
+                        }  
         }
                 
         Cblacs_exit(); //cerramos blacs
