@@ -98,7 +98,7 @@ int main(int argc, char *argv[]) {
 	inicio = clock();	
 	
 	    
-	printf("Proceso: %d %d\n",mytid,tids); 	
+	printf("Proceso num: %d; myprow: %d mypcol: %d\n",mytid,myprow,mypcol); 	
 		
 	Cblacs_exit(); //cerramos blacs
 	MPI_Finalize();
