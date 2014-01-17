@@ -92,8 +92,9 @@ int main(int argc, char *argv[]) {
         
         if ((myprow==0) && (mypcol==0)){
                 
-            A=dmatrix(m,n); B=dmatrix(m,n); C=dmatrix(m,n);
-        /**** Relleno de las matrices con valores aleatorios. Uso de macro propia */
+           	/**** Relleno de las matrices con valores aleatorios. Uso de macro propia */
+		   
+		   	A=dmatrix(m,n); B=dmatrix(m,n); C=dmatrix(m,n);
 
                 //matriz A
 
@@ -101,7 +102,7 @@ int main(int argc, char *argv[]) {
                         for(j=0;j<n;j++) {
                                 M(A,i,j,lda) = rand() % 20;
                         }
-                
+						                
                 //matriz B
 
                 for(i=0;i<m;i++)
@@ -115,7 +116,6 @@ int main(int argc, char *argv[]) {
                         for(j=0;j<n;j++){
                                 M(C,i,j,ldc) = rand() % 20;
                         }
-                
         }
                 
         Cblacs_exit(); //cerramos blacs
