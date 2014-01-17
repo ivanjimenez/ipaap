@@ -46,28 +46,7 @@ int main(int argc, char *argv[]) {
 	lda=m; ldb=m; ldc=m;
 	A=dmatrix(m,n); B=dmatrix(m,n); C=dmatrix(m,n);
 
-/**** Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-	//matriz A
-
-	for(i=0;i<m;i++)
-		for(j=0;j<n;j++) {
-			M(A,i,j,lda) = rand() % 20;
-		}
-		
-	//matriz B
-
-	for(i=0;i<m;i++)
-		for(j=0;j<n;j++){
-			M(B,i,j,ldb) = rand() % 20;
-		}
-	
-	//matriz C
-
-	for(i=0;i<m;i++)
-		for(j=0;j<n;j++){
-			M(C,i,j,ldc) = rand() % 20;
-		}
 	
 /***************Inicializamos el entorno del MPI************/
 	
@@ -99,6 +78,36 @@ int main(int argc, char *argv[]) {
 	
 	    
 	printf("Proceso num: %d; myprow: %d mypcol: %d\n",mytid,myprow+1,mypcol+1); 	
+	
+	
+	/**** Si soy el proceso {0,0}, relleno las matrices ( se rellenan todas en un principio) */
+	
+	if ((myprow==0) && (mypcol==0)){
+		
+	/**** Relleno de las matrices con valores aleatorios. Uso de macro propia */
+
+		//matriz A
+
+		for(i=0;i<m;i++)
+			for(j=0;j<n;j++) {
+				M(A,i,j,lda) = rand() % 20;
+			}
+		
+		//matriz B
+
+		for(i=0;i<m;i++)
+			for(j=0;j<n;j++){
+				M(B,i,j,ldb) = rand() % 20;
+			}
+	
+		//matriz C
+
+		for(i=0;i<m;i++)
+			for(j=0;j<n;j++){
+				M(C,i,j,ldc) = rand() % 20;
+			}
+		
+	}
 		
 	Cblacs_exit(); //cerramos blacs
 	MPI_Finalize();
