@@ -76,10 +76,10 @@ int main(int argc, char *argv[]) {
 
 /***************Inicializamos el entorno BLACS************/
 	int context;
-	int mytid, tid;
+	int mytid, tids;
 	
-	Cblacs_pinfo(&mytid,&tid);
-	Cblacs_get(0,0,&context);
+	Cblacs_pinfo(&mytid,&tids);
+	Cblacs_get(-1,0,&context);
 	Cblacs_gridinit(&context,"R",np_fil,np_col);	
 	
 /***************Inicializamos el entorno de las matrices************/	
@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
 	inicio = clock();	
 	
 	printf("Creo el grid\n");     
-	printf("Proceso: %d\n",mytid,tid); 	
+	printf("Proceso: %d %d\n",mytid,tids); 	
 		
 	Cblacs_exit(); //cerramos blacs
 	MPI_Finalize();
