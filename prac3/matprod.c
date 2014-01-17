@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
 /***** Declaración de variables para la parte número de procesos del Grid ******/
 	
-	int np_fil, np_col;
+	int np_row, np_col;
 	
 /*** Comprobación número de argumentos correctos. Se pasaran m n np_fil np_col */
 	
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 
 /*** Lectura de parametros de entrada ***/
 	   
-	m=atoi(argv[1]); n=atoi(argv[2]); np_fil=atoi(argv[3]); np_col=atoi(argv[4]);
+	m=atoi(argv[1]); n=atoi(argv[2]); np_row=atoi(argv[3]); np_col=atoi(argv[4]);
 
 /*** Dimensionado de las matrices cuadradas, utilizando funciones propias */
 	
@@ -77,10 +77,13 @@ int main(int argc, char *argv[]) {
 /***************Inicializamos el entorno BLACS************/
 	int context;
 	int mytid, tids;
+	int myprow, mypcol;
 	
 	Cblacs_pinfo(&mytid,&tids);
 	Cblacs_get(-1,0,&context);
-	Cblacs_gridinit(&context,"R",np_fil,np_col);	
+	Cblacs_gridinfo(context, &np_row, &np_col, &myprow,&mypcol);
+	Cblacs_gridinit(&context,"R",np_row,np_col);	
+	printf("Creo el grid\n"); 
 	
 /***************Inicializamos el entorno de las matrices************/	
 	double alpha = 1.;
@@ -94,7 +97,7 @@ int main(int argc, char *argv[]) {
 	
 	inicio = clock();	
 	
-	printf("Creo el grid\n");     
+	    
 	printf("Proceso: %d %d\n",mytid,tids); 	
 		
 	Cblacs_exit(); //cerramos blacs
