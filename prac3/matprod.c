@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 	
 	Cblacs_pinfo(&mytid,&tids);
 	Cblacs_get(-1,0,&context);
-	Cblacs_gridinfo(context, &np_row, &np_col, &myprow,&mypcol);
+	//Cblacs_gridinfo(context, &np_row, &np_col, &myprow,&mypcol);
 	Cblacs_gridinit(&context,"R",np_row,np_col);	
 	printf("Creo el grid\n"); 
 	
