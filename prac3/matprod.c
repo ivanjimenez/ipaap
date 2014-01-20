@@ -99,22 +99,43 @@ int main(int argc, char *argv[]) {
 
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++) {
-                                M(A,i,j,lda) = rand() % 20;
+                                M(A,i,j,lda) = i + j;
                         }
                 
                 //matriz B
 
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++){
-                                M(B,i,j,ldb) = rand() % 20;
+                                M(B,i,j,ldb) = i + j;
                         }
         
                 //matriz C
 
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++){
-                                M(C,i,j,ldc) = rand() % 20;
+                                M(C,i,j,ldc) = i + j;
                         }  
+				
+				/********* Imprimir Matrices **************/
+				
+				printf("**** Matriz A ****\n");
+                
+				for (i=0; i<m; i++)
+					for(j=0;j<m;j++){
+						printf("A[%d,%d]= %d",i,j,M(A,i,j,lda));
+					}
+				printf("**** Matriz B ****\n");
+                
+				for (i=0; i<m; i++)
+					for(j=0;j<m;j++){
+						printf("B[%d,%d]= %d",i,j,M(B,i,j,ldb);
+					}
+					printf("****Matriz C****\n");
+                
+				for (i=0; i<m; i++)
+					for(j=0;j<m;j++){
+						printf("C[%d,%d]= %d",i,j,M(C,i,j,ldc));
+					}
         }
                 
         Cblacs_exit(); //cerramos blacs
