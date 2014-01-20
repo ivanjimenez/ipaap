@@ -99,21 +99,21 @@ int main(int argc, char *argv[]) {
 
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++) {
-                                M(A,i,j,lda) = double(i + j);
+                                M(A,i,j,lda) = (double)i + j;
                         }
                 
                 //matriz B
 
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++){
-                                M(B,i,j,ldb) = double(i + j);
+                                M(B,i,j,ldb) = (double)i + j;
                         }
         
                 //matriz C
 
                 for(i=0;i<m;i++)
                         for(j=0;j<n;j++){
-                                M(C,i,j,ldc) = double(i + j);
+                                M(C,i,j,ldc) = (double)i + j;
                         }  
 				
 				/********* Imprimir Matrices **************/
