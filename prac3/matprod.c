@@ -122,19 +122,19 @@ int main(int argc, char *argv[]) {
                 
 				for (i=0; i<m; i++)
 					for(j=0;j<n;j++){
-						printf("A[%d,%d]= %i\n",i,j,M(A,i,j,lda));
+						printf("A[%d,%d]= %d\n",i,j,M(A,i,j,lda));
 					}
 				printf("**** Matriz B ****\n");
                 
 				for (i=0; i<m; i++)
 					for(j=0;j<n;j++){
-						printf("B[%d,%d]= %i\n",i,j,M(B,i,j,ldb));
+						printf("B[%d,%d]= %d\n",i,j,M(B,i,j,ldb));
 					}
 					printf("****Matriz C****\n");
                 
 				for (i=0; i<m; i++)
 					for(j=0;j<n;j++){
-						printf("C[%d,%d]= %i\n",i,j,M(C,i,j,ldc));
+						printf("C[%d,%d]= %d\n",i,j,M(C,i,j,ldc));
 					}
         }
                 
