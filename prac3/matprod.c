@@ -128,7 +128,7 @@ int main(int argc, char *argv[]) {
                 
 				for (i=0; i<m; i++)
 					for(j=0;j<m;j++){
-						printf("B[%d,%d]= %d",i,j,M(B,i,j,ldb);
+						printf("B[%d,%d]= %d",i,j,M(B,i,j,ldb));
 					}
 					printf("****Matriz C****\n");
                 
