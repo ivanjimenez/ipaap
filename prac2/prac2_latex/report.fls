@@ -1,0 +1,15 @@
+PWD /Users/jimenezster/workspaces/ipaap/prac2/prac2_latex
+INPUT /usr/local/texlive/2013basic/texmf.cnf
+INPUT /usr/local/texlive/2013basic/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2013basic/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT report.tex
+OUTPUT report.log
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2013basic/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2013basic/texmf-dist/tex/latex/url/url.sty
