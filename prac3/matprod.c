@@ -27,6 +27,9 @@ int main(int argc, char *argv[]) {
 /***** Declaración de variables para la parte número de procesos del Grid ******/
         
         int np_row, np_col,mb,nb;
+		int DESCA[9], DESCB[9], DESCC[9];
+		int zero = 0;
+		int one = 1;
         
 /***************Inicializamos el entorno del MPI************/
 /* Comentario de Kike *
@@ -78,6 +81,8 @@ int main(int argc, char *argv[]) {
         int info;
         int desc[9];
         int zero = 0; int one = 1;
+		int info;
+		int ia = 1, ja = 1, ib = 1, jb = 1;
 
 
 /***************Inicializamos las colas ************/
@@ -137,6 +142,30 @@ int main(int argc, char *argv[]) {
 						printf("C[%d,%d]= %f\n",i,j,M(C,i,j,ldc));
 					}
         }
+		
+		
+		/** INICIALIZACIÓN DE DESCRIPTORES **/
+		
+		/* Filas Locales. Duda : 
+		
+		*/
+		
+		LLD_A = MAX(1,NUMROC(m, mb, myprow, zero, nprow));
+		LLD_B = MAX(1,NUMROC(m, mb, myprow, zero, nprow));
+		
+		
+		/* Inicialización de los descriptores de las matrices: hago uno por cada matriz*/
+		
+		//matriz global
+		descinit_(DESCA, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_A, &info);
+		
+		//matriz distribuida
+		descinit_(DESCB, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_B, &info);
+		
+		
+		pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
+		
+		
                 
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
