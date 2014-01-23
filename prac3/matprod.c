@@ -219,9 +219,7 @@ int main(int argc, char *argv[]) {
 		
 		*/	    
 		
-		for (i=1; i<(numroc_(&m,&mb,&myprow, &zero, &np_row)) * m; i++)
-			for(j=1; j<(numroc_(&n,&mb,&mypcol, &zero, &np_col)) * n; j++)
-				printf("A(%d,%d)= %f\n",i,j,M(Alocal,i,j,lda));
+	
 		
 		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));
 	        
@@ -230,7 +228,7 @@ int main(int argc, char *argv[]) {
 	    /* Producto de dos matrices: C = AB */
 		
 		
-					/* pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL); */		
+		/* pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL); */		
 			
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
