@@ -199,7 +199,7 @@ int main(int argc, char *argv[]) {
 		*/
 		
 		printf("Salida de Datos de Matrices Locales y Globales\n");
-		printf("LLD_L: %d, LLD_G: %d",LLD_L,LLD_G);
+		printf("Numroc Local: %d, Numroc Global: %d\n",numroc_(&m, &mb, &myprow, &zero, &np_row),numroc_(&m, &m, &myprow, &zero, &np_row));
                 
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
