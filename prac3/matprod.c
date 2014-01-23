@@ -228,7 +228,7 @@ int main(int argc, char *argv[]) {
 	    /* Producto de dos matrices: C = AB */
 		
 		
-		//pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL);		
+					/* pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL); */		
 			
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
