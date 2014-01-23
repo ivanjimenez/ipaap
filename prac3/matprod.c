@@ -223,7 +223,7 @@ int main(int argc, char *argv[]) {
 	        
 		for (i=1; i<m; i++)
 			for(j=1; j<n; j++)
-				printf("A(%d,%d)= %f\n",i,j,M(Alocal,i,j,lda));
+				printf("A(%d,%d)= %f\n",i,j,M(A,i,j,lda));
 			
 	    /* Producto de dos matrices: C = AB */
 		
