@@ -79,7 +79,6 @@ int main(int argc, char *argv[]) {
         double alpha = 1.;
         double beta = 0.;
         int info;
-		int info;
 		//siempre es ia=ja=ib=jb=1
 		int ia = 1, ja = 1, ib = 1, jb = 1;
 		int LLD_L, LLD_G;
