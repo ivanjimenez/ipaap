@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 /***** Declaración de variables para la parte número de procesos del Grid ******/
         
         int np_row, np_col,mb,nb;
-		int DESCA[9], DESCB[9], DESCC[9];
+		int DESCL[9], DESCG[9]; // DESCL descritor de la Matriz local y DESCG de la Matriz Global
 		int zero = 0;
 		int one = 1;
         
@@ -79,9 +79,9 @@ int main(int argc, char *argv[]) {
         double alpha = 1.;
         double beta = 0.;
         int info;
-        int desc[9];
         int zero = 0; int one = 1;
 		int info;
+		//siempre es ia=ja=ib=jb=1
 		int ia = 1, ja = 1, ib = 1, jb = 1;
 
 
@@ -156,22 +156,43 @@ int main(int argc, char *argv[]) {
 		- np_row: número de filas en el proceso de
 		*/
 		
+		/*
+			Incializamos previamente antes de los descriptores un
+			
+		*/
 		
-		
-		LLD_A = MAX(1,NUMROC(m, mb, myprow, zero, np_row));
-		LLD_B = MAX(1,NUMROC(m, mb, myprow, zero, np_row));
+		LLD_L = MAX(1,numroc_(&m, &mb, &myprow, &zero, &np_row));
+		LLD_G = MAX(1,numroc_(&m, &m, &myprow, &zero, &np_row));
 		
 		
 		/* Inicialización de los descriptores de las matrices: hago uno por cada matriz*/
 		
-		//matriz global
-		descinit_(DESCA, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_A, &info);
+		/* Descriptor de la matriz local : DESCL
+		
+		   - DESCL; 
+		   - m: filas
+		   - n: columnas
+		   - mb: tamaño del bloque del gruid en filas
+		    - LLD_G: es el máximo de la dimensión de la matriz global
+ 	   	   
+		   Descriptor de la matriz local : DESCG
+		
+		   - DESCL; 
+		   - m: filas
+		   - n: columnas
+		   - m: tamaño de filas global porque es el descriptor global
+		   - n: tamaño de columnas global porque es el descriptor global
+		   - LLD_G: es el máximo de la dimensión de la matriz global
+		*/
+		
+		descinit_(DESCL, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_L, &info);
+		descinit_(DESCG, &m, &n, &m, &n, &zero, &zero, &context, &LLD_G, &info);
 		
 		//matriz distribuida
-		descinit_(DESCB, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_B, &info);
+		//descinit_(DESCB, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_B, &info);
 		
 		
-		pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
+		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
 		
 		
                 
