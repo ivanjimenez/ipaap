@@ -21,6 +21,7 @@ int main(int argc, char *argv[]) {
         int i,j;
         int m,n,lda,ldb,ldc;
         double *A,*B,*C;
+		double *Alocal, *Blocal, *Clocal;
         clock_t inicio, fin;
         double duration;
 
@@ -187,9 +188,13 @@ int main(int argc, char *argv[]) {
 		descinit_(DESCL, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_L, &info);
 		descinit_(DESCG, &m, &n, &m, &n, &zero, &zero, &context, &LLD_G, &info);
 		
-		//matriz distribuida
+		/* Distribución de las Matrices */
+		
 		//descinit_(DESCB, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_B, &info);
 		
+		Alocal = dmatrix( (numroc_(&m,&mb,&mprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mprow, &zero, &np_row) * n) );
+		Blocal = dmatrix( (numroc_(&m,&mb,&mprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mprow, &zero, &np_row) * n) );
+		Clocal = dmatrix( (numroc_(&m,&mb,&mprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mprow, &zero, &np_row) * n) );
 		
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
 		
@@ -198,9 +203,7 @@ int main(int argc, char *argv[]) {
 		/* Salida de Datos de las Matrices Distribuidas
 		*/
 		
-		printf("Salida de Datos de Matrices Locales y Globales\n");
-		printf("Numroc Local: %d, Numroc Global: %d\n",numroc_(&m, &mb, &myprow, &zero, &np_row),numroc_(&m, &m, &myprow, &zero, &np_row));
-                
+	        
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
         fin = clock();
