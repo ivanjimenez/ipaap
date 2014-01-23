@@ -222,7 +222,7 @@ int main(int argc, char *argv[]) {
 		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));
 	        
 		for (i=1; i<m; i++)
-			for(j=1; j<m; j++)
+			for(j=1; j<n; j++)
 				printf("A(%d,%d)= %f",i,j,M(A,i,j,lda));
 			
 	    /* Producto de dos matrices: C = AB */
