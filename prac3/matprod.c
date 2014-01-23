@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
         double beta = 0.;
         int info;
 		//siempre es ia=ja=ib=jb=1
-		int ia = 1, ja = 1, ib = 1, jb = 1, ic =1, jc = 1;
+		int one = 1;
 		int LLD_L, LLD_G;
 
 
@@ -202,7 +202,7 @@ int main(int argc, char *argv[]) {
 		/* Llamada a la prmitiva de distribución*/
 	    
 		// Distribuimos la matriz A en la Alocal
-		//pdgemr2d_(&m, &n, &A, &ia, &ja, &DESCG, &Alocal, &ia, &ja, &DESCL, &context);
+		pdgemr2d_(&m, &n, &A, &one, &one, &DESCG, &Alocal, &one, &one, &DESCL, &context);
 		
 		// Distribuimos la matriz B en la Blocal
 		//pdgemr2d_(&m, &n, &B, &ib, &jb, &DESCG, &Blocal, &ib, &jb, &DESCL, &context);
