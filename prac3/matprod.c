@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
         Cblacs_get(-1,0,&context);
         Cblacs_gridinit(&context,"R",np_row,np_col);        
         Cblacs_gridinfo(context, &np_row, &np_col, &myprow,&mypcol);
-        printf("Creo el grid\n");
+        //printf("Creo el grid\n");
         
 /*** Dimensionado de las matrices cuadradas, utilizando funciones propias */
 
@@ -192,9 +192,9 @@ int main(int argc, char *argv[]) {
 		
 		//descinit_(DESCB, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_B, &info);
 		
-		Alocal = dmatrix( (numroc_(&m,&mb,&mprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mprow, &zero, &np_row) * n) );
-		Blocal = dmatrix( (numroc_(&m,&mb,&mprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mprow, &zero, &np_row) * n) );
-		Clocal = dmatrix( (numroc_(&m,&mb,&mprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mprow, &zero, &np_row) * n) );
+		Alocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
+		Blocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
+		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
 		
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
 		
