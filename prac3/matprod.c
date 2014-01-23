@@ -202,10 +202,10 @@ int main(int argc, char *argv[]) {
 		/* Llamada a la prmitiva de distribución*/
 	    
 		// Distribuimos la matriz A en la Alocal
-		pdgemr2d_(&m, &n, &A, &ia, &ja, &DESCG, &Alocal, &ia, &ja, &DESCL, &context);
+		//pdgemr2d_(&m, &n, &A, &ia, &ja, &DESCG, &Alocal, &ia, &ja, &DESCL, &context);
 		
 		// Distribuimos la matriz B en la Blocal
-		pdgemr2d_(&m, &n, &B, &ib, &jb, &DESCG, &Blocal, &ib, &jb, &DESCL, &context);
+		//pdgemr2d_(&m, &n, &B, &ib, &jb, &DESCG, &Blocal, &ib, &jb, &DESCL, &context);
 		
 		/* Salida de Datos de las Matrices Distribuidas
 		
