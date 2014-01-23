@@ -201,17 +201,17 @@ int main(int argc, char *argv[]) {
 		
 		/* Salida de Datos de las Matrices Distribuidas
 		
-		Salida de NUMROC: [0/4] myprow: 0 mypcol: 0 filas locales: 2 col locales: 3
-		
-		Salida de NUMROC: [1/4] myprow: 0 mypcol: 1 filas locales: 2 col locales: 3
+Salida de NUMROC: [0/4] myprow: 0 mypcol: 0 filas locales: 2 col locales: 3
 
-		Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 2
+Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 2
 
-		Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
+Salida de NUMROC: [1/4] myprow: 0 mypcol: 1 filas locales: 2 col locales: 3
+
+Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
 		
 		*/	
 		
-		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m, &mb, &myprow, &zero, &np_row),numroc_(&n, &mb, &myprow, &zero, &np_col));
+		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&myprow, &zero, &np_row));
 	        
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
