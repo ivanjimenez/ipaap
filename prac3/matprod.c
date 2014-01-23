@@ -194,6 +194,12 @@ int main(int argc, char *argv[]) {
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
 		
 		
+		
+		/* Salida de Datos de las Matrices Distribuidas
+		*/
+		
+		printf("Salida de Datos de Matrices Locales y Globales\n");
+		printf("LLD_L: %d, LLD_G: %d",LLD_L,LLD_G);
                 
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
