@@ -211,7 +211,7 @@ Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
 		
 		*/	
 		
-		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&myprow, &zero, &np_row));
+		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));
 	        
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
