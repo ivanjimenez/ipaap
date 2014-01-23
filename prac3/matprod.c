@@ -220,13 +220,9 @@ int main(int argc, char *argv[]) {
 		*/	    
 		
 	
-		
-		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));
-	        
-		
+		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));        
 			
 	    /* Producto de dos matrices: C = AB */
-		
 		
 		/* pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL); */		
 			
