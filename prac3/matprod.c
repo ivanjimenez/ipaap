@@ -197,12 +197,12 @@ int main(int argc, char *argv[]) {
 		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
 		
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
-		
-		
+	
 		
 		/* Salida de Datos de las Matrices Distribuidas
-		*/
+		*/	
 		
+		printf("[%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m, &mb, &myprow, &zero, &np_row),numroc_(&n, &mb, &myprow, &zero, &np_row));
 	        
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
