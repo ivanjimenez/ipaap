@@ -148,10 +148,18 @@ int main(int argc, char *argv[]) {
 		
 		/* Filas Locales. Duda : 
 		
+		NUMROC(m,mb,myprow,zero, neprow):
+		- m: número de filas en la matriz global
+		- mb: tamaño de bloque de la fila
+		- myprow: es el índice de la fila del proceso
+		- zero: le pasamos 0 pq es la fila proceso sobre la que la primera fila de la matriz global es distribuida
+		- np_row: número de filas en el proceso de
 		*/
 		
-		LLD_A = MAX(1,NUMROC(m, mb, myprow, zero, nprow));
-		LLD_B = MAX(1,NUMROC(m, mb, myprow, zero, nprow));
+		
+		
+		LLD_A = MAX(1,NUMROC(m, mb, myprow, zero, np_row));
+		LLD_B = MAX(1,NUMROC(m, mb, myprow, zero, np_row));
 		
 		
 		/* Inicialización de los descriptores de las matrices: hago uno por cada matriz*/
