@@ -204,7 +204,7 @@ int main(int argc, char *argv[]) {
 		pdgemr2d_(&m, &n, &A, &one, &one, &DESCG, &Alocal, &one, &one, &DESCL, &context);
 		
 		// Distribuimos la matriz B en la Blocal
-		//pdgemr2d_(&m, &n, &B, &ib, &jb, &DESCG, &Blocal, &ib, &jb, &DESCL, &context);
+		pdgemr2d_(&m, &n, &B, &one, &one, &DESCG, &Blocal, &one, &one, &DESCL, &context);
 		
 		/* Salida de Datos de las Matrices Distribuidas
 		
