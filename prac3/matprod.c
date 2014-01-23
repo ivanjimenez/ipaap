@@ -210,18 +210,26 @@ int main(int argc, char *argv[]) {
 		
 		=> Ejemplo para la matriz 3x5 que teníamos:
 		
-		Salida de NUMROC: [0/4] myprow: 0 mypcol: 0 filas locales: 2 col locales: 3
-
+		=> lo del myprow -1191701840 sale cuando llamo a las primitivas pdgemr2d_, si no, sale 0
+		
+		Salida de NUMROC: [0/32767] myprow: -1191701840 mypcol: 0 filas locales: 2 col locales: 3
 		Salida de NUMROC: [1/4] myprow: 0 mypcol: 1 filas locales: 2 col locales: 2
-
-		Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 3
-
 		Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
+		Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 3
 		
 		*/	    
 		
 		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));
 	        
+		for (i=1; i<m; i++)
+			for(j=1; j<m; j++)
+				printf("A(i,j)= %d",M(A,i,j,lda))
+			
+	    /* Producto de dos matrices: C = AB */
+		
+		
+		//pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL);		
+			
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
         fin = clock();
