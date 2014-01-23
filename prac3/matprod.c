@@ -14,7 +14,6 @@ by Iván Jiménez
 #include "mpi.h"
 
 
-
 int main(int argc, char *argv[]) {
         
 /***** Declaración de variables para la parte de declaración de matrices ******/
@@ -81,7 +80,7 @@ int main(int argc, char *argv[]) {
         double beta = 0.;
         int info;
 		//siempre es ia=ja=ib=jb=1
-		int ia = 1, ja = 1, ib = 1, jb = 1;
+		int ia = 1, ja = 1, ib = 1, jb = 1, ic =1, jc = 1;
 		int LLD_L, LLD_G;
 
 
@@ -188,26 +187,37 @@ int main(int argc, char *argv[]) {
 		descinit_(DESCL, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_L, &info);
 		descinit_(DESCG, &m, &n, &m, &n, &zero, &zero, &context, &LLD_G, &info);
 		
-		/* Distribución de las Matrices */
+		/*** Distribución de las Matrices */
 		
 		//descinit_(DESCB, &m, &n, &mb, &nb, &zero, &zero, &context, &LLD_B, &info);
 		
-		Alocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
-		Blocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
-		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&myprow, &zero, &np_row) * n) );
+		/*  Reserva de espacio */
+		
+		Alocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mypcol, &zero, &np_col) * n) );
+		Blocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mypcol, &zero, &np_col) * n) );
+		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mypcol, &zero, &np_col) * n) );
 		
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
-	
+		
+		/* Llamada a la prmitiva de distribución*/
+	    
+		// Distribuimos la matriz A en la Alocal
+		pdgemr2d_(&m, &n, &A, &ia, &ja, &DESCG, &Alocal, &ia, &ja, &DESCL, &context);
+		
+		// Distribuimos la matriz B en la Blocal
+		pdgemr2d_(&m, &n, &B, &ib, &jb, &DESCG, &Blocal, &ib, &jb, &DESCL, &context);
 		
 		/* Salida de Datos de las Matrices Distribuidas
 		
-Salida de NUMROC: [0/4] myprow: 0 mypcol: 0 filas locales: 2 col locales: 3
+		=> Ejemplo para la matriz 3x5 que teníamos:
+		
+		Salida de NUMROC: [0/4] myprow: 0 mypcol: 0 filas locales: 2 col locales: 3
 
-Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 2
+		Salida de NUMROC: [1/4] myprow: 0 mypcol: 1 filas locales: 2 col locales: 2
 
-Salida de NUMROC: [1/4] myprow: 0 mypcol: 1 filas locales: 2 col locales: 3
+		Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 3
 
-Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
+		Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
 		
 		*/	
 		
