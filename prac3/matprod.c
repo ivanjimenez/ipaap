@@ -226,16 +226,20 @@ int main(int argc, char *argv[]) {
 		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol, n_filas_locales, n_col_locales);        
 			
 			
-		printf("Impresión de MATRICES LOCALES:\n");
+		if ((np_row == 0) && (np_col==0)) {
+			
+			for (i=0;i<n_filas_locales;i++)
+				for(j=0;j<n_col_locales;j++)
+					printf("Alocal[%d,%d]= %f\n",i,j,M(A,i,j,lda));	
 		
-		for (i=0;i<n_filas_locales;i++)
-			for(j=0;j<n_col_locales;j++)
-				printf("Alocal[%d,%d]= %f\n",i,j,M(A,i,j,lda));	
+			
+		}
 		
-		for (i=0;i<n_filas_locales;i++)
+	
+		/*for (i=0;i<n_filas_locales;i++)
 			for(j=0;j<n_col_locales;j++)
 				printf("Blocal[%d,%d]= %f\n",i,j,M(B,i,j,ldb));	
-		
+		*/
 		
 		/* Producto de dos matrices: C = AB */
 		
