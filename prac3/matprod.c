@@ -223,16 +223,16 @@ int main(int argc, char *argv[]) {
 		
 		Alocal[0,0]= 0.000000
 		Alocal[0,1]= 1.000000
-		Alocal[0,2]= 2.000000
+		Alocal[0,2]= 4.000000
 		Alocal[1,0]= 1.000000
 		Alocal[1,1]= 2.000000
-		Alocal[1,2]= 3.000000
+		Alocal[1,2]= 5.000000
 		Blocal[0,0]= 0.000000
 		Blocal[0,1]= 1.000000
-		Blocal[0,2]= 2.000000
+		Blocal[0,2]= 4.000000
 		Blocal[1,0]= 1.000000
 		Blocal[1,1]= 2.000000
-		Blocal[1,2]= 3.000000
+		Blocal[1,2]= 5.000000
 		
 		*/	    
 			
@@ -260,7 +260,9 @@ int main(int argc, char *argv[]) {
 		
 		/* Producto de dos matrices: C = AB */
 		
-		/* pdgemm_('N','N', &m, &n, &lda, &alfa, &Alocal, 1, 1, &DESCL, &Blocal, 1, 1, &DESCL, &beta, &Clocal, 1,1, &DESCL); */		
+	    pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alfa, Alocal, 1, 1, DESCL, Blocal, 1, 1, DESCL, &beta, Clocal, 1,1, DESCL);
+				
+		pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
 			
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
