@@ -260,7 +260,7 @@ int main(int argc, char *argv[]) {
 		
 		/* Producto de dos matrices: C = AB */
 		
-	    pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alfa, Alocal, 1, 1, DESCL, Blocal, 1, 1, DESCL, &beta, Clocal, 1,1, DESCL);
+	    pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, 1, 1, DESCL, Blocal, 1, 1, DESCL, &beta, Clocal, 1,1, DESCL);
 				
 		pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
 			
