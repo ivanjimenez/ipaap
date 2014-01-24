@@ -243,11 +243,11 @@ int main(int argc, char *argv[]) {
 			
 			for (i=0;i<n_filas_locales;i++)
 				for(j=0;j<n_col_locales;j++)
-					printf("Alocal[%d,%d]= %f\n",i,j,M(A,i,j,lda));	
+					printf("Alocal[%d,%d]= %f\n",i,j,M(Alocal,i,j,n_filas_locales));	
 			
 			for (i=0;i<n_filas_locales;i++)
 				for(j=0;j<n_col_locales;j++)
-					printf("Blocal[%d,%d]= %f\n",i,j,M(B,i,j,ldb));	
+					printf("Blocal[%d,%d]= %f\n",i,j,M(Blocal,i,j,n_filas_locales));	
 		
 			
 		}
