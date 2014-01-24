@@ -79,7 +79,8 @@ int main(int argc, char *argv[]) {
         double alpha = 1.;
         double beta = 0.;
         int info;
-	
+	    int n_filas_locales;
+		int n_col_locales;
 		int LLD_L, LLD_G;
 
 
@@ -192,19 +193,23 @@ int main(int argc, char *argv[]) {
 		
 		/*  Reserva de espacio */
 		
-		Alocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row)), (numroc_(&n,&mb,&mypcol, &zero, &np_col));
-		Blocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row)), (numroc_(&n,&mb,&mypcol, &zero, &np_col));
-		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row)), (numroc_(&n,&mb,&mypcol, &zero, &np_col)) );
+		n_filas_locales = numroc_(&m,&mb,&myprow, &zero, &np_row);
+		n_col_locales = numroc_(&n,&mb,&mypcol, &zero, &np_col);
+		
+		
+		Alocal = dmatrix( n_filas_locales, n_col_locales );
+		Blocal = dmatrix( n_filas_locales, n_col_locales );
+		Clocal = dmatrix( n_filas_locales, n_col_locales );
 		
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
 		
 		/* Llamada a la prmitiva de distribución*/
 	    
 		// Distribuimos la matriz A en la Alocal
-		pdgemr2d_(&m, &n, &A, &one, &one, &DESCG, &Alocal, &one, &one, &DESCL, &context);
+		pdgemr2d_(&m, &n, A, &one, &one, DESCG, Alocal, &one, &one, DESCL, &context);
 		
 		// Distribuimos la matriz B en la Blocal
-		pdgemr2d_(&m, &n, &B, &one, &one, &DESCG, &Blocal, &one, &one, &DESCL, &context);
+		pdgemr2d_(&m, &n, B, &one, &one, DESCG, Blocal, &one, &one, DESCL, &context);
 		
 		/* Salida de Datos de las Matrices Distribuidas
 		
@@ -220,7 +225,7 @@ int main(int argc, char *argv[]) {
 		*/	    
 		
 	
-		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol,numroc_(&m,&mb,&myprow, &zero, &np_row),numroc_(&n,&mb,&mypcol, &zero, &np_col));        
+		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol, n_filas_locales, n_col_locales);        
 			
 	    /* Producto de dos matrices: C = AB */
 		
