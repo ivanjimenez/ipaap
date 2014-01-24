@@ -192,9 +192,9 @@ int main(int argc, char *argv[]) {
 		
 		/*  Reserva de espacio */
 		
-		Alocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mypcol, &zero, &np_col) * n) );
-		Blocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mypcol, &zero, &np_col) * n) );
-		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row) * m), (numroc_(&n,&mb,&mypcol, &zero, &np_col) * n) );
+		Alocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row)), (numroc_(&n,&mb,&mypcol, &zero, &np_col));
+		Blocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row)), (numroc_(&n,&mb,&mypcol, &zero, &np_col));
+		Clocal = dmatrix( (numroc_(&m,&mb,&myprow, &zero, &np_row)), (numroc_(&n,&mb,&mypcol, &zero, &np_col)) );
 		
 		//pdgemr2d(m, n, A, ia, ja, DESCA, B, ib, jb, DESCB, context);
 		
