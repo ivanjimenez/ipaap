@@ -220,6 +220,25 @@ int main(int argc, char *argv[]) {
 		Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
 		Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 3
 		
+		
+		
+		Alocal[0,0]= 0.000000
+		Alocal[0,1]= 1.000000
+		Alocal[0,2]= 2.000000
+		Alocal[1,0]= 1.000000
+		Alocal[1,1]= 2.000000
+		Alocal[1,2]= 3.000000
+		Salida de NUMROC: [1/4] myprow: 0 mypcol: 1 filas locales: 2 col locales: 2
+		Impresión de MATRICES LOCALES:
+		Alocal[0,0]= 0.000000
+		Alocal[0,1]= 0.000000
+		Alocal[1,0]= 0.000000
+		Alocal[1,1]= 0.000000
+		Salida de NUMROC: [3/4] myprow: 1 mypcol: 1 filas locales: 1 col locales: 2
+		Impresión de MATRICES LOCALES:
+		Alocal[0,0]= 0.000000
+		Alocal[0,1]= 0.000000
+		
 		*/	    
 			
 		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol, n_filas_locales, n_col_locales);        
@@ -230,6 +249,10 @@ int main(int argc, char *argv[]) {
 		for (i=0;i<n_filas_locales;i++)
 			for(j=0;j<n_col_locales;j++)
 				printf("Alocal[%d,%d]= %f\n",i,j,M(A,i,j,lda));	
+		
+		for (i=0;i<n_filas_locales;i++)
+			for(j=0;j<n_col_locales;j++)
+				printf("Alocal[%d,%d]= %f\n",i,j,M(B,i,j,ldb));	
 		
 		
 		/* Producto de dos matrices: C = AB */
