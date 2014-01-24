@@ -221,6 +221,19 @@ int main(int argc, char *argv[]) {
 		Salida de NUMROC: [2/4] myprow: 1 mypcol: 0 filas locales: 1 col locales: 3
 			
 		
+		Alocal[0,0]= 0.000000
+		Alocal[0,1]= 1.000000
+		Alocal[0,2]= 2.000000
+		Alocal[1,0]= 1.000000
+		Alocal[1,1]= 2.000000
+		Alocal[1,2]= 3.000000
+		Blocal[0,0]= 0.000000
+		Blocal[0,1]= 1.000000
+		Blocal[0,2]= 2.000000
+		Blocal[1,0]= 1.000000
+		Blocal[1,1]= 2.000000
+		Blocal[1,2]= 3.000000
+		
 		*/	    
 			
 		printf("Salida de NUMROC: [%d/%d] myprow: %d mypcol: %d filas locales: %d col locales: %d\n",mytid,tids,myprow,mypcol, n_filas_locales, n_col_locales);        
