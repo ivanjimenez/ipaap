@@ -234,7 +234,6 @@ int main(int argc, char *argv[]) {
 		for (i=1;i<n_filas_locales;i++)
 			for(j=1;j<n_col_locales;j++)
 				printf("Blocal[%d,%d]= %f\n",i,j,M(B,i,j,ldb));	
-	    
 		
 		/* Producto de dos matrices: C = AB */
 		
