@@ -1,8 +1,9 @@
-qsub job_ppn1_1k
-qsub job_ppn1_2k
-qsub job_ppn1_4k
-qsub job_ppn2_1k
-qsub job_ppn2_2k
-qsub job_ppn8_1k
-qsub job_ppn8_2k
-qsub job_ppn8_4k
+mpiexec -n 1 ./mpi_blas_gemm 1000 1000 1000 | tee ~/job_n1_1k
+mpiexec -n 1 ./mpi_blas_gemm 2000 2000 2000 | tee ~/job_n1_2k
+mpiexec -n 1 ./mpi_blas_gemm 4000 4000 4000 | tee ~/job_n1_4k
+mpiexec -n 2 ./mpi_blas_gemm 1000 1000 1000 | tee ~/job_n2_1k
+mpiexec -n 2 ./mpi_blas_gemm 2000 2000 2000 | tee ~/job_n2_2k
+mpiexec -n 2 ./mpi_blas_gemm 4000 4000 4000 | tee ~/job_n2_4k
+mpiexec -n 8 ./mpi_blas_gemm 1000 1000 1000 | tee ~/job_n8_1k
+mpiexec -n 8 ./mpi_blas_gemm 2000 2000 2000 | tee ~/job_n8_2k
+mpiexec -n 8 ./mpi_blas_gemm 4000 4000 4000 | tee ~/job_n8_4k
