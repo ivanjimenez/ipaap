@@ -163,7 +163,6 @@ int main(int argc, char *argv[]) {
 		LLD_L = MAX(1,numroc_(&m, &mb, &myprow, &zero, &np_row));
 		LLD_G = MAX(1,numroc_(&m, &m, &myprow, &zero, &np_row));
 		
-		
 		/* Inicialización de los descriptores de las matrices: hago uno por cada matriz*/
 		
 		/* Descriptor de la matriz local : DESCL
