@@ -259,9 +259,9 @@ int main(int argc, char *argv[]) {
 		
 		/* Producto de dos matrices: C = AB */
 		
-			//pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, &one, &one, DESCL, Blocal, &one, &one, DESCL, &beta, Clocal, &one, &one, DESCL);
+			pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, &one, &one, DESCL, Blocal, &one, &one, DESCL, &beta, Clocal, &one, &one, DESCL);
 				
-			pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
+			//pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
 		
 			
         Cblacs_exit(); //cerramos blacs
