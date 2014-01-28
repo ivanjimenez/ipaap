@@ -140,6 +140,7 @@ int main(int argc, char *argv[]) {
 					for(j=0;j<n;j++){
 						printf("C[%d,%d]= %f\n",i,j,M(C,i,j,ldc));
 					}
+					
         }
 		
 		
@@ -251,17 +252,14 @@ int main(int argc, char *argv[]) {
 			
 		}
 		
-		for (i=0; i<m; i++)
-			for(j=0;j<n;j++){
-				printf("Impresión AxB = C[%d,%d]= %f\n",i,j,M(C,i,j,ldc));
-			}
+	
 		
 		
 		/* Producto de dos matrices: C = AB */
 		
 			pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, &one, &one, DESCL, Blocal, &one, &one, DESCL, &beta, Clocal, &one, &one, DESCL);
 				
-			//pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
+			pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
 		
 			
         Cblacs_exit(); //cerramos blacs
