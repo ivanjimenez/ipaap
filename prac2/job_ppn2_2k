@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N job_mpi_n1_ppn2_1k
+#PBS -N job_mpi_n1_ppn2_2k
 #PBS -k eo
 #PBS -l nodes=1:ppn=2
 #PBS -l walltime=00:30:00
