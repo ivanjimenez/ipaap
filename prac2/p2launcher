@@ -1,0 +1,8 @@
+qsub job_ppn1_1k
+qsub job_ppn1_2k
+qsub job_ppn1_4k
+qsub job_ppn2_1k
+qsub job_ppn2_2k
+qsub job_ppn8_1k
+qsub job_ppn8_2k
+qsub job_ppn8_4k
