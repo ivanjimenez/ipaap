@@ -256,7 +256,7 @@ int main(int argc, char *argv[]) {
 		
 		printf("Antes del pdgemm_\n");
 		
-		pdgemm_("N","N", &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, &one, &one, DESCL, Blocal, &one, &one, DESCL, &beta, Clocal, &one, &one, DESCL);
+		pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, &one, &one, DESCL, Blocal, &one, &one, DESCL, &beta, Clocal, &one, &one, DESCL);
 		
 		printf("He salido del pdgemm_\n");
 				
