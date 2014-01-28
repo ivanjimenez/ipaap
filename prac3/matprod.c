@@ -262,7 +262,7 @@ int main(int argc, char *argv[]) {
 		
 	    pdgemm_('N','N', &n_filas_locales, &n_col_locales, &n_filas_locales, &alpha, Alocal, 1, 1, DESCL, Blocal, 1, 1, DESCL, &beta, Clocal, 1,1, DESCL);
 				
-		pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
+		//pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
 		
 		/*for (i=0; i<m; i++)
 			for(j=0;j<n;j++){
