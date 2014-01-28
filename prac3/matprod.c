@@ -76,8 +76,8 @@ int main(int argc, char *argv[]) {
 
 
 /***************Inicializamos el entorno de las matrices************/        
-        int alpha = 1.;
-        int beta = 0.;
+        double alpha = 1.;
+        double beta = 0.;
         int info;
 	    int n_filas_locales;
 		int n_col_locales;
