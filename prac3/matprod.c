@@ -264,10 +264,10 @@ int main(int argc, char *argv[]) {
 				
 		pdgemr2d_(&m, &n, Clocal, &one, &one, DESCL, C, &one, &one, DESCG, &context);
 		
-		for (i=0; i<m; i++)
+		/*for (i=0; i<m; i++)
 			for(j=0;j<n;j++){
 				printf("Impresión AxB = C[%d,%d]= %f\n",i,j,M(C,i,j,ldc));
-			}
+			}*/
 			
         Cblacs_exit(); //cerramos blacs
         MPI_Finalize();
