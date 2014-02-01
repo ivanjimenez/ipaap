@@ -1,0 +1,121 @@
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f3fbeee0010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f64ba024010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fe771c2f010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f2d43853010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f1be3909010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f0e1675a010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f6f7beac010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fece6682010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f0a16d4d010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f8b98fe3010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1720).......: 
+state_commrdy_handler(1556).......: 
+MPID_nem_tcp_recv_handler(1446)...: socket closed
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fbd47929010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fc314a4c010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f05cc763010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fe52e18e010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7ff059331010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f35cf038010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fdbcad1c010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7fd0580e4010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f54edda8010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+Fatal error in MPI_Send: Other MPI error, error stack:
+MPI_Send(174).....................: MPI_Send(buf=0x7f562d35e010, count=163840, MPI_DOUBLE, dest=0, tag=0, MPI_COMM_WORLD) failed
+MPIDI_CH3I_Progress(150)..........: 
+MPID_nem_mpich2_blocking_recv(948): 
+MPID_nem_tcp_connpoll(1709).......: Communication error
+mpiexec: Warning: tasks 0,2-4 died with signal 15 (Terminated).
+mpiexec: Warning: task 1 died with signal 11 (Segmentation fault).
+mpiexec: Warning: tasks 5-24 exited with status 1.

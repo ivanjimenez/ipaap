@@ -1,0 +1,2 @@
+mpiexec: Warning: tasks 0,2-4 died with signal 15 (Terminated).
+mpiexec: Warning: task 1 died with signal 11 (Segmentation fault).
