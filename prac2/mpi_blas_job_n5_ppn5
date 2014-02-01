@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N mpi_blas_ddot_n3ppn5
+#PBS -N mpi_blas_ddot_n5ppn5
 #PBS -k eo
 #PBS -l nodes=5:ppn=5
 #PBS -l walltime=00:30:00
