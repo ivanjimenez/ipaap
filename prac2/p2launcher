@@ -1,8 +1,14 @@
 qsub mpi_blas_job_n1_ppn1
 qsub mpi_blas_job_n1_ppn1_2k
 qsub mpi_blas_job_n1_ppn5
+qsub mpi_blas_job_n1_ppn5_2k
 qsub mpi_blas_job_n3_ppn5
+qsub mpi_blas_job_n3_ppn5_2k
 qsub mpi_blas_job_n5_ppn1
+qsub mpi_blas_job_n5_ppn1_2k
 qsub mpi_blas_job_n5_ppn2
+qsub mpi_blas_job_n5_ppn2_2k
 qsub mpi_blas_job_n5_ppn3
+qsub mpi_blas_job_n5_ppn3_2k
 qsub mpi_blas_job_n5_ppn5
+qsub mpi_blas_job_n5_ppn5_2k
