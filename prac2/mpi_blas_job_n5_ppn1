@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -N mpi_blas_n5_ppn1
+#PBS -k eo
+#PBS -l nodes=5:ppn=1
+#PBS -l walltime=00:30:00
+cd $PBS_O_WORKDIR
+mpiexec ./mpi_blas_gemm 100 100 100
