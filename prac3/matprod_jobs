@@ -1,0 +1,6 @@
+qsub matprod_1k16np1g1x1
+qsub matprod_1k16np2g1x2
+qsub matprod_1k16np2g2x1
+qsub matprod_1k16np4g1x4
+qsub matprod_1k16np4g4x1
+
