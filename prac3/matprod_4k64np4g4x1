@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -N matprod_4k64np4g4x1
+#PBS -k eo
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=00:30:00
+cd $PBS_O_WORKDIR
+mpiexec ./matprod 4096 4096 4 1 64 64
