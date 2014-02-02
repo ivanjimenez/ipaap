@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -N mpi_blas_ddot_n1_2k
+#PBS -N mpi_blas_n1_4k
 #PBS -k eo
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:30:00
 cd $PBS_O_WORKDIR
-mpiexec ./mpi_blas_gemm 2048 2048 2048
+mpiexec ./mpi_blas_gemm 4096 4096 4096
