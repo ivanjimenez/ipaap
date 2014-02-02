@@ -1,7 +1,10 @@
-qsub mpi_blas_job_n1
+qsub mpi_blas_job_n1_1k
+qsub mpi_blas_job_n2_1k
+qsub mpi_blas_job_n4_1k
 qsub mpi_blas_job_n1_2k
-qsub mpi_blas_job_n2
 qsub mpi_blas_job_n2_2k
-qsub mpi_blas_job_n4
 qsub mpi_blas_job_n4_2k
+qsub mpi_blas_job_n1_4k
+qsub mpi_blas_job_n2_4k
+
 
