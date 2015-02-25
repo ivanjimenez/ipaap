@@ -1,7 +1,5 @@
 ###ipaap
 
-- Lista
-  * mi lista
 
 #Introducción a la Programación de Arquitecturas de Altas Prestaciones
 
