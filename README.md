@@ -1,6 +1,5 @@
 ###ipaap
 
-
 #Introducción a la Programación de Arquitecturas de Altas Prestaciones
 
 ##Autor: Iván Jiménez Utiel
