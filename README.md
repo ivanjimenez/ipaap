@@ -1,13 +1,13 @@
-###ipaap
+# ipaap
 
-#Introducción a la Programación de Arquitecturas de Altas Prestaciones
+### Introducción a la Programación de Arquitecturas de Altas Prestaciones
 
-##Autor: Iván Jiménez Utiel
+## Autor: Iván Jiménez Utiel
 
-###Práctica 1: Programación Orientada a Bloques
-###Contenidos de las Carpetas y Código Fuente###
+### Práctica 1: Programación Orientada a Bloques
+### Contenidos de las Carpetas y Código Fuente###
 
-###prac1
+### prac1
 
 Contiene en su raíz todos los ficheros de la propia práctica
 
@@ -17,11 +17,11 @@ memoryfun.c		=> Crea los arrays y las matrices
 memoryfun.h		=> Es el cargador de los arrays y matrices
 mi_gemm_ijk.c   => Producto de Matrices C = A*B con el ordenamiento ijk
 
-###CBLAS
+### CBLAS
 
 Código fuente de la librería CBLAS
 
-###pruebas
+### pruebas
 
 Archivos de pruebas que he ido realizando previo a la carga completa.
 
@@ -35,40 +35,40 @@ prac_prod-kji.c			=> Producto de Matrices C = A*B con el ordenamiento kji
 
 prac_pueba.c			=> Prueba inicial_
 
-###mi_gemm.ijk.c
+#### mi_gemm.ijk.c
 Código que realizar el producto de matrices básico teniendo en cuenta la ordenación de bucle ijk
 
-###mi_gemm.jki.c
+#### mi_gemm.jki.c
 Código que realizar el producto de matrices básico teniendo en cuenta la ordenación de bucle jki
 
-###mi_gemm.kji.c
+#### mi_gemm.kji.c
 Código que realizar el producto de matrices básico teniendo en cuenta la ordenación de bucle kji_
 
-###bloque_ijk.c
+#### bloque_ijk.c
 Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación ijk. 
 Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000_
 
-###bloque_jki.c
+#### bloque_jki.c
 Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación jki. 
 Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000
 
-###bloque_kji.c
+#### bloque_kji.c
 Código que realiza el producto de matrices bloque teniendo en cuenta la ordenación kji. 
 Se pasan dos argumentos: n, dimensión de la matriz y alfa, dimensión de la matriz bloque; para la práctica pasaremos el tamaño 50x50 y 100x100 para matrices de 1000x1000
 
-###cblas_ddot.c
+#### cblas_ddot.c
 Computamos la operación cblas_dot<-X^T*Y
 
-###cblas_degmv.c
+#### cblas_degmv.c
 Computamos la operación y <- alfa*op(A)*x + beta*y
 
-###cblas_dgemm.c
+#### cblas_dgemm.c
 Computamos la operación C <- alfa*op(A)*op*(B)+beta*C
 
-###mpi_jobs
+#### mpi_jobs
 Carpeta que contiene los Ficheros de Salida de los Trabajos MPI_
 
-###Trabajos MPI
+#### Trabajos MPI
 mpi_gemm_ijk_1000
 mpi_gemm_ijk_2000
 mpi_gemm_jki_1000
